@@ -13,9 +13,15 @@
 		0A357F072A115F6D00EF13E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */; };
 		0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F082A115F6D00EF13E5 /* Persistence.swift */; };
 		0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */; };
+		0AD403EF2A1D212A002D06EF /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD403EE2A1D212A002D06EF /* AlarmModel.swift */; };
+		0AD4042E2A1D27A3002D06EF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4042D2A1D27A3002D06EF /* Theme.swift */; };
+		0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4042F2A1D27B1002D06EF /* ThemedLabel.swift */; };
+		0AD404322A1D2A4B002D06EF /* ThemedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD404312A1D2A4B002D06EF /* ThemedText.swift */; };
+		0AD404352A1D2BE1002D06EF /* IsDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD404342A1D2BE1002D06EF /* IsDarkTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "duck-alarm-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0A357EFC2A115F6C00EF13E5 /* duck_alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duck_alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A357EFF2A115F6C00EF13E5 /* duck_alarmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duck_alarmApp.swift; sourceTree = "<group>"; };
 		0A357F012A115F6C00EF13E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +29,11 @@
 		0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A357F082A115F6D00EF13E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0A357F0B2A115F6D00EF13E5 /* duck_alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duck_alarm.xcdatamodel; sourceTree = "<group>"; };
+		0AD403EE2A1D212A002D06EF /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
+		0AD4042D2A1D27A3002D06EF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0AD4042F2A1D27B1002D06EF /* ThemedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedLabel.swift; sourceTree = "<group>"; };
+		0AD404312A1D2A4B002D06EF /* ThemedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedText.swift; sourceTree = "<group>"; };
+		0AD404342A1D2BE1002D06EF /* IsDarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsDarkTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +66,9 @@
 		0A357EFE2A115F6C00EF13E5 /* duck_alarm */ = {
 			isa = PBXGroup;
 			children = (
+				0AD404292A1D275F002D06EF /* ui */,
+				0AD403EC2A1D20EC002D06EF /* data */,
+				0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */,
 				0A357EFF2A115F6C00EF13E5 /* duck_alarmApp.swift */,
 				0A357F012A115F6C00EF13E5 /* ContentView.swift */,
 				0A357F032A115F6D00EF13E5 /* Assets.xcassets */,
@@ -71,6 +85,49 @@
 				0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0AD403EC2A1D20EC002D06EF /* data */ = {
+			isa = PBXGroup;
+			children = (
+				0AD403ED2A1D20F9002D06EF /* models */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		0AD403ED2A1D20F9002D06EF /* models */ = {
+			isa = PBXGroup;
+			children = (
+				0AD403EE2A1D212A002D06EF /* AlarmModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		0AD404292A1D275F002D06EF /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				0AD404332A1D2BD0002D06EF /* utils */,
+				0AD4042A2A1D276C002D06EF /* base */,
+				0AD4042D2A1D27A3002D06EF /* Theme.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		0AD4042A2A1D276C002D06EF /* base */ = {
+			isa = PBXGroup;
+			children = (
+				0AD4042F2A1D27B1002D06EF /* ThemedLabel.swift */,
+				0AD404312A1D2A4B002D06EF /* ThemedText.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		0AD404332A1D2BD0002D06EF /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				0AD404342A1D2BE1002D06EF /* IsDarkTheme.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +200,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD403EF2A1D212A002D06EF /* AlarmModel.swift in Sources */,
+				0AD404352A1D2BE1002D06EF /* IsDarkTheme.swift in Sources */,
 				0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */,
+				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
 				0A357F022A115F6C00EF13E5 /* ContentView.swift in Sources */,
 				0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */,
 				0A357F002A115F6C00EF13E5 /* duck_alarmApp.swift in Sources */,
+				0AD4042E2A1D27A3002D06EF /* Theme.swift in Sources */,
+				0AD404322A1D2A4B002D06EF /* ThemedText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +337,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"duck_alarm/Preview Content\"";
+				DEVELOPMENT_TEAM = 3NTA26LD35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "duck-alarm-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -303,8 +367,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"duck_alarm/Preview Content\"";
+				DEVELOPMENT_TEAM = 3NTA26LD35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "duck-alarm-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

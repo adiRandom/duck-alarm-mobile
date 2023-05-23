@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 @main
 struct duck_alarmApp: App {
@@ -15,6 +16,6 @@ struct duck_alarmApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
+		}
     }
 }
