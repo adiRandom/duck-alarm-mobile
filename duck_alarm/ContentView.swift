@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-	@State var alarms: [AlarmModel] = []
+	@ObservedObject var viewModel = ContentViewViewModel()
 
 	func addAlarm() {}
 
 	var body: some View {
 		NavigationStack {
 			VStack {
-				if alarms.isEmpty {
+				if viewModel.alarms.isEmpty {
 					ThemedText("No alarms set yet", fontStyle: .title2, isDisabled: true)
 				}
 			}

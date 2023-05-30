@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Theme{
-	static let PRIMARY_COLOR = Color.yellow
+	static let PRIMARY_COLOR = Color(hex: 0xE3BC2D)
+	static let PRIMARY_COLOR_DARK = Color(hex: 0xFCD74E)
 	static let DISABLED_LIGHT = Color(hex:0x333333)
 	static let DISABLED_DARK = Color(hex:0xE3E3E3)
 }

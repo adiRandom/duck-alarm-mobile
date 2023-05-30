@@ -13,11 +13,20 @@ struct ThemedText: View {
 	var text: String
 	var fontSize: CGFloat? = nil
 	var fontStyle: Font? = nil
+	var fontWeight: Font.Weight? = nil
+	var isPrimaryColor: Bool = false
 
-	init(_ text: String, isDisabled: Bool = false, fontSize: CGFloat) {
+	init(_ text: String,
+	     isDisabled: Bool = false,
+		 fontSize: CGFloat,
+	     fontWeight: Font.Weight = .regular,
+	     isPrimaryColor: Bool = false)
+	{
 		self.text = text
 		self.isDisabled = isDisabled
 		self.fontSize = fontSize
+		self.fontWeight = fontWeight
+		self.isPrimaryColor = isPrimaryColor
 	}
 
 	init(_ text: String, fontStyle: Font = .body, isDisabled: Bool = false) {
@@ -33,7 +42,13 @@ struct ThemedText: View {
 			} else {
 				return Theme.DISABLED_LIGHT
 			}
-		} else {
+		} else if isPrimaryColor{
+			if isDarkMode {
+				return Theme.PRIMARY_COLOR_DARK
+			} else {
+				return Theme.PRIMARY_COLOR
+			}
+		} else{
 			return nil
 		}
 	}
@@ -42,7 +57,7 @@ struct ThemedText: View {
 		if let fontStyle {
 			return fontStyle
 		} else if let fontSize {
-			return .system(size: fontSize)
+			return .system(size: fontSize, weight: fontWeight)
 		} else {
 			return .body
 		}
@@ -51,6 +66,8 @@ struct ThemedText: View {
 	var body: some View {
 		Text(text).foregroundColor(getTextColor()).font(getFont())
 	}
+	
+	static let DEFAULT_SIZE = 17.0
 }
 
 struct ThemedText_Previews: PreviewProvider {

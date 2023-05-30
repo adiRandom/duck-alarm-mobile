@@ -7,11 +7,28 @@
 
 import Foundation
 
-
-struct AlarmModel{
+class AlarmModel: ObservableObject, Identifiable {
 	let id: Int
 	let hour: Int
 	let min: Int
+	let isPm: Bool
 	let repeatingDays: [Int]
-	let active: Bool
+	@Published
+	var isActive: Bool
+
+	init(
+		id: Int = Int.random(in: 0 ..< Int.max),
+		hour: Int,
+		min: Int,
+		isPm: Bool,
+		repeatingDays: [Int],
+		active: Bool
+	) {
+		self.id = id
+		self.hour = hour
+		self.min = min
+		self.isPm = isPm
+		self.repeatingDays = repeatingDays
+		self.isActive = active
+	}
 }
