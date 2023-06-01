@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AlarmVIew: View {
+struct AlarmView: View {
 	@ObservedObject var alarm: AlarmModel
 
 	private func formatHour() -> String {
@@ -15,7 +15,7 @@ struct AlarmVIew: View {
 	}
 
 	var body: some View {
-		VStack {
+		VStack(alignment: .leading) {
 			HStack {
 				HStack(alignment: .lastTextBaseline) {
 					ThemedText(
@@ -30,8 +30,7 @@ struct AlarmVIew: View {
 				Spacer()
 				Toggle("", isOn: $alarm.isActive)
 			}
-			// TODO: Add repeat time
-			ThemedText("")
+			ThemedText(StringUtils.getRepeatDaysAsString(repeatDays: alarm.repeatingDays), isDisabled: true)
 		}
 		.padding(EdgeInsets(top: 12.0, leading: 24.0, bottom: 12.0, trailing: 24.0))
 	}
@@ -39,7 +38,16 @@ struct AlarmVIew: View {
 
 struct AlarmVIew_Previews: PreviewProvider {
 	static var previews: some View {
-		@ObservedObject var alarm = AlarmModel(hour: 9, min: 25, isPm: false, repeatingDays: [], active: true)
-		AlarmVIew(alarm: alarm)
+		@ObservedObject var alarm = AlarmModel(hour: 9, min: 25, isPm: false, repeatingDays: [0, 3, 5], active: true)
+		@ObservedObject var alarmWeekend = AlarmModel(hour: 12, min: 25, isPm: false, repeatingDays: [5, 6], active: false)
+		@ObservedObject var alarmWeekdays = AlarmModel(hour: 9, min: 00, isPm: true, repeatingDays: [0, 1, 2, 3, 4], active: false)
+		@ObservedObject var alarmAll = AlarmModel(hour: 11, min: 02, isPm: true, repeatingDays: [0, 1, 2, 3, 4, 5, 6], active: true)
+
+		Group {
+			AlarmView(alarm: alarm).previewDisplayName("Individual Days")
+			AlarmView(alarm: alarmWeekend).previewDisplayName("Weekend")
+			AlarmView(alarm: alarmWeekdays).previewDisplayName("Week days")
+			AlarmView(alarm: alarmAll).previewDisplayName("All")
+		}
 	}
 }
