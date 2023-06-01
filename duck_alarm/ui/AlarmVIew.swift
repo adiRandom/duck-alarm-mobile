@@ -20,6 +20,7 @@ struct AlarmView: View {
 				HStack(alignment: .lastTextBaseline) {
 					ThemedText(
 						StringUtils.formatHourAndMin(hour: alarm.hour, min: alarm.min),
+						isDisabled: !alarm.isActive,
 						fontSize: 36.0,
 						fontWeight: .semibold
 					)
