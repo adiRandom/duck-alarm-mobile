@@ -23,7 +23,7 @@ struct AlarmView: View {
 						fontSize: 36.0,
 						fontWeight: .semibold
 					)
-					ThemedText(alarm.isPm == true ?"PM" : "AM",
+					ThemedText(alarm.isPm == true ? "PM" : "AM",
 					           fontSize: ThemedText.DEFAULT_SIZE,
 					           isPrimaryColor: true)
 				}
