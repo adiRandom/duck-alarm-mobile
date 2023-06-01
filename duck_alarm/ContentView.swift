@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 	@ObservedObject var viewModel = ContentViewViewModel()
+	@State var isAddBottomSheetPresented = false
 
 	func addAlarm() {}
 
@@ -26,6 +27,9 @@ struct ContentView: View {
 						ThemedLabel(text: "Add Item", systemIcon: "plus").foregroundColor(.red)
 					}
 				}
+			}
+			.sheet(isPresented: $isAddBottomSheetPresented){
+				
 			}
 		}
 	}
