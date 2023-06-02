@@ -20,5 +20,117 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B5CF3CD-A378-445C-B9BF-BF88D866AE46"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "duck_alarm/data/entities/AlarmEntity.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "init(model:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6B5CF3CD-A378-445C-B9BF-BF88D866AE46 - d76049c269e1826"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duck_alarm.AlarmEntity.__allocating_init(model: duck_alarm.AlarmModel) -&gt; duck_alarm.AlarmEntity"
+                  moduleName = "duck_alarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi_random/XCode%20Projects/duck_alarm/duck_alarm/data/entities/AlarmEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "6B5CF3CD-A378-445C-B9BF-BF88D866AE46 - 6fa59f715f0b469"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duck_alarm.AlarmEntity.__allocating_init(model: duck_alarm.AlarmModel, context: __C.NSManagedObjectContext) -&gt; duck_alarm.AlarmEntity"
+                  moduleName = "duck_alarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi_random/XCode%20Projects/duck_alarm/duck_alarm/data/entities/AlarmEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "213642D8-24C2-4670-A5A7-2BF849490DAB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "duck_alarm/data/entities/AlarmEntity.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "init(model:context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "213642D8-24C2-4670-A5A7-2BF849490DAB - d76049c269e1805"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duck_alarm.AlarmEntity.__allocating_init(model: duck_alarm.AlarmModel) -&gt; duck_alarm.AlarmEntity"
+                  moduleName = "duck_alarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi_random/XCode%20Projects/duck_alarm/duck_alarm/data/entities/AlarmEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "213642D8-24C2-4670-A5A7-2BF849490DAB - 6fa59f715f0b44a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duck_alarm.AlarmEntity.__allocating_init(model: duck_alarm.AlarmModel, context: __C.NSManagedObjectContext) -&gt; duck_alarm.AlarmEntity"
+                  moduleName = "duck_alarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi_random/XCode%20Projects/duck_alarm/duck_alarm/data/entities/AlarmEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "236">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "968FF235-A981-48C0-835B-ED046359FBE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "duck_alarm/data/entities/AlarmEntity.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "init(model:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

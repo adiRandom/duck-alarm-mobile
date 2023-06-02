@@ -25,6 +25,8 @@ enum StringUtils {
 			return "Weekend"
 		} else if repeatDays.count == 5 && repeatDays.allSatisfy({ el in el != 5 && el != 6 }) {
 			return "Week Days"
+		} else if repeatDays.count == 0 {
+			return "No Repeat"
 		} else {
 			return String(repeatDays.reduce("") { acc, curr in acc + curr.getWeekDay() + ", " }.dropLast(2))
 		}

@@ -11,11 +11,15 @@ struct AddAlarmBottomSheet: View {
 	let isEditable: Bool
 	let onSaveAlarm: (_ selectedTime: Date, _ repeatDays: [Int])->Void
 
+	@Binding
+	var isBottomSheetPresented: Bool
+
 	@State var selectedTime: Date
 	@State var repeatDays: [Int]
 
 	init(
 		alarmModel: AlarmModel?,
+		isBottomSheetPresented: Binding<Bool>,
 		onSaveAlarm: @escaping (_ selectedTime: Date, _ repeatDays: [Int])->Void
 	) {
 		if let alarmModel {
@@ -29,6 +33,7 @@ struct AddAlarmBottomSheet: View {
 		}
 
 		self.onSaveAlarm = onSaveAlarm
+		self._isBottomSheetPresented = isBottomSheetPresented
 	}
 
 	var body: some View {
@@ -45,7 +50,11 @@ struct AddAlarmBottomSheet: View {
 				}
 			}.padding([.bottom], 20)
 			VStack(spacing: 8) {
-				Button(action: { onSaveAlarm(selectedTime, repeatDays) }) { Text("Save")
+				Button(action: {
+					onSaveAlarm(selectedTime, repeatDays)
+					isBottomSheetPresented = false
+				}
+				) { Text("Save")
 					.frame(maxWidth: .infinity)
 				}
 				if isEditable {
@@ -55,7 +64,8 @@ struct AddAlarmBottomSheet: View {
 					})
 				}
 			}
-			.padding([.top, .bottom], 8)
+			.padding([.top], 8)
+			.padding([.bottom], 20)
 			.background(Color(UIColor.secondarySystemFill))
 			.cornerRadius(12)
 		}.padding([.trailing, .leading], 24)
@@ -65,15 +75,20 @@ struct AddAlarmBottomSheet: View {
 struct AddAlarmBottomSheet_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			AddAlarmBottomSheet(alarmModel: nil, onSaveAlarm: { _, _ in
+			AddAlarmBottomSheet(alarmModel: nil,
+			                    isBottomSheetPresented: .constant(true),
+			                    onSaveAlarm: { _, _ in
 
-			}).previewDisplayName("Add")
+			                    })
+			                    .previewDisplayName("Add")
 			AddAlarmBottomSheet(alarmModel: AlarmModel(
 				hour: 4, min: 20, isPm: true, repeatingDays: [1, 3], active: true
-			), onSaveAlarm: { _ , _ in
+			),
+			isBottomSheetPresented: .constant(true),
+			onSaveAlarm: { _, _ in
 
 			})
-			.previewDisplayName("Edit")
+				.previewDisplayName("Edit")
 		}
 	}
 }

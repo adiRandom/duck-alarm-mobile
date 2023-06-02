@@ -25,6 +25,7 @@ struct ContentView: View {
 					ForEach(alarms) { alarm in
 						AlarmView(alarm: alarm)
 					}
+					Spacer()
 				}
 			}
 			.navigationTitle("Alarms")
@@ -37,7 +38,8 @@ struct ContentView: View {
 			}
 			.sheet(isPresented: $viewModel.isBottomSheetPresented) {
 				AddAlarmBottomSheet(
-					alarmModel: viewModel.selectedAlarmModel
+					alarmModel: viewModel.selectedAlarmModel,
+					isBottomSheetPresented: $viewModel.isBottomSheetPresented
 				) { selectedTime, repeatDays in
 					viewModel.saveAlarm(selectedTime: selectedTime, repeatDays: repeatDays)
 				}

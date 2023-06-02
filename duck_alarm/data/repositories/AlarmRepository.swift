@@ -12,8 +12,6 @@ class AlarmRepository: ObservableObject {
 	private let db = Database.shared
 
 	func saveAlarm(alarm: AlarmModel) {
-		db.container.viewContext.insert(AlarmEntity(model: alarm))
+		db.container.viewContext.insert(AlarmEntity(model: alarm, context: db.container.viewContext))
 	}
 }
-
-

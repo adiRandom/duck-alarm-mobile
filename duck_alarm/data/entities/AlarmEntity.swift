@@ -7,8 +7,11 @@
 import CoreData
 
 extension AlarmEntity {
-	convenience init(model: AlarmModel) {
-		self.init()
+	convenience init(model: AlarmModel, context: NSManagedObjectContext) {
+		self.init(entity: NSEntityDescription.entity(
+			forEntityName: "AlarmEntity",
+			in: context)!,
+		insertInto: context)
 		self.hour = Int16(model.hour)
 		self.minute = Int16(model.min)
 		self.isActive = model.isActive
@@ -21,7 +24,7 @@ extension AlarmEntity {
 		                  hour: Int(self.hour),
 		                  min: Int(self.minute),
 		                  isPm: self.isPm,
-		                  repeatingDays: self.repeatingDays ?? Array<Int>(),
+		                  repeatingDays: self.repeatingDays ?? [Int](),
 		                  active: self.isActive)
 	}
 }
