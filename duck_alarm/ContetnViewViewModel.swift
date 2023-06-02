@@ -8,12 +8,9 @@
 import SwiftUI
 
 class ContentViewViewModel:ObservableObject{
-	init(){
-		
+	init(alarmRepository: AlarmRepository){
+		self.alarmRepository = alarmRepository
 	}
-	
-	@Published
-	var alarms: [AlarmModel] = []
 	
 	@Published
 	var isBottomSheetPresented = false
@@ -21,7 +18,31 @@ class ContentViewViewModel:ObservableObject{
 	@Published
 	var selectedAlarmModel:AlarmModel? = nil
 	
+	let alarmRepository:AlarmRepository
+	
 	func addAlarm(){
 		isBottomSheetPresented = true
+	}
+	
+	func saveAlarm(selectedTime: Date, repeatDays: [Int]){
+		var hour = Calendar.current.component(.hour, from: selectedTime)
+		var isPm = false
+
+		if hour > 12 {
+			isPm = true
+			hour -= 12
+		} else if hour == 12 {
+			isPm = true
+		}
+
+		let minute = Calendar.current.component(.minute, from: selectedTime)
+
+		let model = AlarmModel(hour: hour, min: minute, isPm: isPm, repeatingDays: repeatDays, active: true)
+		
+		if let selectedAlarmModel{
+			model.id = selectedAlarmModel.id
+		}
+		
+		alarmRepository.saveAlarm(alarm: model)
 	}
 }

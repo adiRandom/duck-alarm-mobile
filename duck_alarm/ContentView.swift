@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-	@ObservedObject var viewModel = ContentViewViewModel()
+	@StateObject private var viewModel = ContentViewViewModel(
+		alarmRepository: AlarmRepository()
+	)
+
+	@FetchRequest(sortDescriptors: [SortDescriptor(\.isPm), SortDescriptor(\.hour), SortDescriptor(\.minute)])
+	private var alarmEntities: FetchedResults<AlarmEntity>
+	private var alarms: [AlarmModel] { alarmEntities.map { entity in entity.toModel() }}
 
 	var body: some View {
 		NavigationStack {
 			VStack {
-				if viewModel.alarms.isEmpty {
+				if alarms.isEmpty {
 					ThemedText("No alarms set yet", fontStyle: .title2, isDisabled: true)
+				} else {
+					ForEach(alarms) { alarm in
+						AlarmView(alarm: alarm)
+					}
 				}
 			}
 			.navigationTitle("Alarms")
@@ -26,10 +36,13 @@ struct ContentView: View {
 				}
 			}
 			.sheet(isPresented: $viewModel.isBottomSheetPresented) {
-				AddAlarmBottomSheet(alarmModel: viewModel.selectedAlarmModel)
-					.presentationDragIndicator(.visible)
-					.presentationDetents([.medium])
-					
+				AddAlarmBottomSheet(
+					alarmModel: viewModel.selectedAlarmModel
+				) { selectedTime, repeatDays in
+					viewModel.saveAlarm(selectedTime: selectedTime, repeatDays: repeatDays)
+				}
+				.presentationDragIndicator(.visible)
+				.presentationDetents([.medium])
 			}
 		}
 	}
@@ -37,6 +50,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+		ContentView()
 	}
 }

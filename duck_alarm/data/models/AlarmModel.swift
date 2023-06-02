@@ -8,7 +8,7 @@
 import Foundation
 
 class AlarmModel: ObservableObject, Identifiable {
-	let id: Int
+	var id: Int
 	let hour: Int
 	let min: Int
 	let isPm: Bool

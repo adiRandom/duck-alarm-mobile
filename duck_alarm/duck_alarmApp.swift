@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import AVKit
 
 @main
 struct duck_alarmApp: App {
-    let persistenceController = PersistenceController.shared
+    let persistenceController = Database.shared
 
     var body: some Scene {
         WindowGroup {

@@ -18,6 +18,8 @@
 		0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F082A115F6D00EF13E5 /* Persistence.swift */; };
 		0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */; };
 		0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288502A29011800ADE430 /* TimeUtils.swift */; };
+		0A5288542A2A942000ADE430 /* AlarmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288532A2A942000ADE430 /* AlarmRepository.swift */; };
+		0A5288572A2A967900ADE430 /* AlarmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288562A2A967900ADE430 /* AlarmEntity.swift */; };
 		0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9977C72A28D31100D96A3C /* Modifiers.swift */; };
 		0A9E64EA2A26819B00A16892 /* AlarmVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E64E92A26819B00A16892 /* AlarmVIew.swift */; };
 		0A9E64ED2A2682C800A16892 /* StringUtills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E64EC2A2682C800A16892 /* StringUtills.swift */; };
@@ -43,6 +45,8 @@
 		0A357F082A115F6D00EF13E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0A357F0B2A115F6D00EF13E5 /* duck_alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duck_alarm.xcdatamodel; sourceTree = "<group>"; };
 		0A5288502A29011800ADE430 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
+		0A5288532A2A942000ADE430 /* AlarmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRepository.swift; sourceTree = "<group>"; };
+		0A5288562A2A967900ADE430 /* AlarmEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEntity.swift; sourceTree = "<group>"; };
 		0A9977C72A28D31100D96A3C /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0A9E64E92A26819B00A16892 /* AlarmVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVIew.swift; sourceTree = "<group>"; };
 		0A9E64EC2A2682C800A16892 /* StringUtills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtills.swift; sourceTree = "<group>"; };
@@ -116,6 +120,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0A5288522A2A940A00ADE430 /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				0A5288532A2A942000ADE430 /* AlarmRepository.swift */,
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
+		0A5288552A2A966A00ADE430 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				0A5288562A2A967900ADE430 /* AlarmEntity.swift */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
 		0A9E64EB2A2682B300A16892 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +149,8 @@
 		0AD403EC2A1D20EC002D06EF /* data */ = {
 			isa = PBXGroup;
 			children = (
+				0A5288552A2A966A00ADE430 /* entities */,
+				0A5288522A2A940A00ADE430 /* repositories */,
 				0AD403ED2A1D20F9002D06EF /* models */,
 			);
 			path = data;
@@ -249,12 +271,14 @@
 				0A34794D2A28CBBF007B88A6 /* NumberUtils.swift in Sources */,
 				0AD404352A1D2BE1002D06EF /* IsDarkTheme.swift in Sources */,
 				0A9E64EA2A26819B00A16892 /* AlarmVIew.swift in Sources */,
+				0A5288572A2A967900ADE430 /* AlarmEntity.swift in Sources */,
 				0A34794B2A28C920007B88A6 /* AddAlarmBottomSheet.swift in Sources */,
 				0A3479522A28CC33007B88A6 /* AlarmDayButton.swift in Sources */,
 				0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */,
 				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
 				0A357F022A115F6C00EF13E5 /* ContentView.swift in Sources */,
 				0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */,
+				0A5288542A2A942000ADE430 /* AlarmRepository.swift in Sources */,
 				0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */,
 				0A9E64EF2A268B9000A16892 /* ContetnViewViewModel.swift in Sources */,
 				0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */,

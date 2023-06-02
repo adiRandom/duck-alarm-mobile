@@ -9,11 +9,15 @@ import SwiftUI
 
 struct AddAlarmBottomSheet: View {
 	let isEditable: Bool
+	let onSaveAlarm: (_ selectedTime: Date, _ repeatDays: [Int])->Void
 
 	@State var selectedTime: Date
 	@State var repeatDays: [Int]
 
-	init(alarmModel: AlarmModel?) {
+	init(
+		alarmModel: AlarmModel?,
+		onSaveAlarm: @escaping (_ selectedTime: Date, _ repeatDays: [Int])->Void
+	) {
 		if let alarmModel {
 			isEditable = true
 			_repeatDays = State(initialValue: alarmModel.repeatingDays)
@@ -23,6 +27,8 @@ struct AddAlarmBottomSheet: View {
 			_selectedTime = State(initialValue: Date())
 			_repeatDays = State(initialValue: [])
 		}
+
+		self.onSaveAlarm = onSaveAlarm
 	}
 
 	var body: some View {
@@ -39,7 +45,7 @@ struct AddAlarmBottomSheet: View {
 				}
 			}.padding([.bottom], 20)
 			VStack(spacing: 8) {
-				Button(action: {}) { Text("Save")
+				Button(action: { onSaveAlarm(selectedTime, repeatDays) }) { Text("Save")
 					.frame(maxWidth: .infinity)
 				}
 				if isEditable {
@@ -59,11 +65,14 @@ struct AddAlarmBottomSheet: View {
 struct AddAlarmBottomSheet_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			AddAlarmBottomSheet(alarmModel: nil)
-				.previewDisplayName("Add")
+			AddAlarmBottomSheet(alarmModel: nil, onSaveAlarm: { _, _ in
+
+			}).previewDisplayName("Add")
 			AddAlarmBottomSheet(alarmModel: AlarmModel(
 				hour: 4, min: 20, isPm: true, repeatingDays: [1, 3], active: true
-			))
+			), onSaveAlarm: { _ in
+
+			})
 			.previewDisplayName("Edit")
 		}
 	}

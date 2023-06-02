@@ -13,7 +13,7 @@ struct TimeUtils{
 		calendar.timeZone = TimeZone.current
 		
 		var dateComponents = DateComponents()
-		dateComponents.hour = isPm ? hour + 12 : hour
+		dateComponents.hour = hour == 12 ? (isPm ? 12 : 0) : (isPm ? hour + 12 : hour)
 		dateComponents.minute = minute
 		
 		return calendar.date(from: dateComponents) ?? Date()
