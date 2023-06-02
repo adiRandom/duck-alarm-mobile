@@ -70,7 +70,7 @@ struct AddAlarmBottomSheet_Previews: PreviewProvider {
 			}).previewDisplayName("Add")
 			AddAlarmBottomSheet(alarmModel: AlarmModel(
 				hour: 4, min: 20, isPm: true, repeatingDays: [1, 3], active: true
-			), onSaveAlarm: { _ in
+			), onSaveAlarm: { _ , _ in
 
 			})
 			.previewDisplayName("Edit")
