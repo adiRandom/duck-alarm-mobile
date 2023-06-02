@@ -12,6 +12,7 @@ struct ContentView: View {
 		alarmRepository: AlarmRepository()
 	)
 
+	// TODO: No data when starting the app
 	@FetchRequest(sortDescriptors: [SortDescriptor(\.isPm), SortDescriptor(\.hour), SortDescriptor(\.minute)])
 	private var alarmEntities: FetchedResults<AlarmEntity>
 	private var alarms: [AlarmModel] { alarmEntities.map { entity in entity.toModel() }}

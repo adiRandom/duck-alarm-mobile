@@ -33,7 +33,7 @@ struct AddAlarmBottomSheet: View {
 		}
 
 		self.onSaveAlarm = onSaveAlarm
-		self._isBottomSheetPresented = isBottomSheetPresented
+		_isBottomSheetPresented = isBottomSheetPresented
 	}
 
 	var body: some View {
@@ -64,11 +64,12 @@ struct AddAlarmBottomSheet: View {
 					})
 				}
 			}
-			.padding([.top], 8)
-			.padding([.bottom], 20)
+			.padding([.top, .bottom], 8)
 			.background(Color(UIColor.secondarySystemFill))
 			.cornerRadius(12)
-		}.padding([.trailing, .leading], 24)
+		}
+		.padding([.trailing, .leading], 24)
+		.padding([.bottom], 12)
 	}
 }
 
@@ -88,7 +89,7 @@ struct AddAlarmBottomSheet_Previews: PreviewProvider {
 			onSaveAlarm: { _, _ in
 
 			})
-				.previewDisplayName("Edit")
+			.previewDisplayName("Edit")
 		}
 	}
 }
