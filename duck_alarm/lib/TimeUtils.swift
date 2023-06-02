@@ -10,7 +10,7 @@ import Foundation
 struct TimeUtils{
 	static func createDate(hour: Int, minute: Int, isPm: Bool) -> Date {
 		var calendar = Calendar.current
-		calendar.timeZone = TimeZone(identifier: "UTC") ?? TimeZone.current
+		calendar.timeZone = TimeZone.current
 		
 		var dateComponents = DateComponents()
 		dateComponents.hour = isPm ? hour + 12 : hour

@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
 	@ObservedObject var viewModel = ContentViewViewModel()
-	@State var isAddBottomSheetPresented = false
-
-	func addAlarm() {}
 
 	var body: some View {
 		NavigationStack {
@@ -23,13 +20,16 @@ struct ContentView: View {
 			.navigationTitle("Alarms")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Button(action: addAlarm) {
+					Button(action: viewModel.addAlarm) {
 						ThemedLabel(text: "Add Item", systemIcon: "plus").foregroundColor(.red)
 					}
 				}
 			}
-			.sheet(isPresented: $isAddBottomSheetPresented){
-				
+			.sheet(isPresented: $viewModel.isBottomSheetPresented) {
+				AddAlarmBottomSheet(alarmModel: viewModel.selectedAlarmModel)
+					.presentationDragIndicator(.visible)
+					.presentationDetents([.medium])
+					
 			}
 		}
 	}

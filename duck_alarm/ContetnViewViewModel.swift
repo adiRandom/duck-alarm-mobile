@@ -14,4 +14,14 @@ class ContentViewViewModel:ObservableObject{
 	
 	@Published
 	var alarms: [AlarmModel] = []
+	
+	@Published
+	var isBottomSheetPresented = false
+	
+	@Published
+	var selectedAlarmModel:AlarmModel? = nil
+	
+	func addAlarm(){
+		isBottomSheetPresented = true
+	}
 }
