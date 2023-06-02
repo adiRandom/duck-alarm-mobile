@@ -12,7 +12,7 @@ class AlarmModel: ObservableObject, Identifiable {
 	let hour: Int
 	let min: Int
 	let isPm: Bool
-	let repeatingDays: [Int]
+	var repeatingDays: [Int]
 	@Published
 	var isActive: Bool
 
@@ -30,5 +30,14 @@ class AlarmModel: ObservableObject, Identifiable {
 		self.isPm = isPm
 		self.repeatingDays = repeatingDays
 		self.isActive = active
+	}
+	
+	init(){
+		self.id = Int.random(in: 0 ..< Int.max)
+		self.hour = 12
+		self.min = 00
+		self.isPm = true
+		self.repeatingDays = []
+		self.isActive = true
 	}
 }

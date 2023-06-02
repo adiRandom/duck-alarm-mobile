@@ -35,7 +35,7 @@ struct AlarmDayButton: View {
 				.frame(width: 32, height: 32)
 				.foregroundColor(getTextColor())
 				.background(getBackgroundColor())
-				.cornerRadius(isToggled == true ? 32 : 0)
+				.cornerRadius(32)
 				.border(width: 2,
 				        color: getBorderColor(),
 				        cornerRadius: 32)

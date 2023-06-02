@@ -17,6 +17,7 @@
 		0A357F072A115F6D00EF13E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */; };
 		0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F082A115F6D00EF13E5 /* Persistence.swift */; };
 		0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */; };
+		0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288502A29011800ADE430 /* TimeUtils.swift */; };
 		0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9977C72A28D31100D96A3C /* Modifiers.swift */; };
 		0A9E64EA2A26819B00A16892 /* AlarmVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E64E92A26819B00A16892 /* AlarmVIew.swift */; };
 		0A9E64ED2A2682C800A16892 /* StringUtills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E64EC2A2682C800A16892 /* StringUtills.swift */; };
@@ -41,6 +42,7 @@
 		0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A357F082A115F6D00EF13E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0A357F0B2A115F6D00EF13E5 /* duck_alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duck_alarm.xcdatamodel; sourceTree = "<group>"; };
+		0A5288502A29011800ADE430 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		0A9977C72A28D31100D96A3C /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0A9E64E92A26819B00A16892 /* AlarmVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVIew.swift; sourceTree = "<group>"; };
 		0A9E64EC2A2682C800A16892 /* StringUtills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtills.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				0A9E64EC2A2682C800A16892 /* StringUtills.swift */,
 				0A34794C2A28CBBF007B88A6 /* NumberUtils.swift */,
+				0A5288502A29011800ADE430 /* TimeUtils.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
 				0A357F022A115F6C00EF13E5 /* ContentView.swift in Sources */,
 				0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */,
+				0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */,
 				0A9E64EF2A268B9000A16892 /* ContetnViewViewModel.swift in Sources */,
 				0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */,
 				0A357F002A115F6C00EF13E5 /* duck_alarmApp.swift in Sources */,
