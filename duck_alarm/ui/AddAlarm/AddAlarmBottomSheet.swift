@@ -44,11 +44,7 @@ struct AddAlarmBottomSheet: View {
 			DatePicker(selection: $selectedTime, displayedComponents: .hourAndMinute) {}
 				.datePickerStyle(.wheel)
 				.labelsHidden()
-			HStack {
-				ForEach(0 ..< 7) { dayIndex in
-					AlarmDayButton(day: dayIndex, isToggled: repeatDays.contains(dayIndex))
-				}
-			}.padding([.bottom], 20)
+			RepeatDaysBar(repeatDays: $repeatDays).padding([.bottom], 20)
 			VStack(spacing: 8) {
 				Button(action: {
 					onSaveAlarm(selectedTime, repeatDays)

@@ -17,6 +17,7 @@ extension AlarmEntity {
 		self.isActive = model.isActive
 		self.repeatingDays = model.repeatingDays
 		self.id = Int64(model.id)
+		self.isPm = model.isPm
 	}
 
 	func toModel() -> AlarmModel {

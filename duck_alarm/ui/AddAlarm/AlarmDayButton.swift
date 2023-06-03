@@ -10,6 +10,7 @@ import SwiftUI
 struct AlarmDayButton: View {
 	let day: Int
 	@State var isToggled = false
+	let onToggle: (Int, Bool)->Void
 	@IsDarkMode var isDarkMode
 	@PrimaryColor var primaryColor
 
@@ -29,8 +30,13 @@ struct AlarmDayButton: View {
 		}
 	}
 
+	func handleToggle() {
+		isToggled = !isToggled
+		onToggle(day, isToggled)
+	}
+
 	var body: some View {
-		Button(action: { isToggled = !isToggled }) {
+		Button(action: {handleToggle()}) {
 			Text(day.getWeekDay())
 				.frame(width: 32, height: 32)
 				.foregroundColor(getTextColor())
@@ -45,6 +51,6 @@ struct AlarmDayButton: View {
 
 struct AlarmDayButton_Previews: PreviewProvider {
 	static var previews: some View {
-		AlarmDayButton(day: 1)
+		AlarmDayButton(day: 1) { _, _ in }
 	}
 }

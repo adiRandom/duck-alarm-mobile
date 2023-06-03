@@ -29,6 +29,7 @@
 		0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4042F2A1D27B1002D06EF /* ThemedLabel.swift */; };
 		0AD404322A1D2A4B002D06EF /* ThemedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD404312A1D2A4B002D06EF /* ThemedText.swift */; };
 		0AD404352A1D2BE1002D06EF /* IsDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD404342A1D2BE1002D06EF /* IsDarkTheme.swift */; };
+		0ADADEC72A2B36D700028147 /* RepeatDaysBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADADEC62A2B36D700028147 /* RepeatDaysBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		0AD4042F2A1D27B1002D06EF /* ThemedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedLabel.swift; sourceTree = "<group>"; };
 		0AD404312A1D2A4B002D06EF /* ThemedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedText.swift; sourceTree = "<group>"; };
 		0AD404342A1D2BE1002D06EF /* IsDarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsDarkTheme.swift; sourceTree = "<group>"; };
+		0ADADEC62A2B36D700028147 /* RepeatDaysBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDaysBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				0A34794A2A28C920007B88A6 /* AddAlarmBottomSheet.swift */,
 				0A3479512A28CC33007B88A6 /* AlarmDayButton.swift */,
+				0ADADEC62A2B36D700028147 /* RepeatDaysBar.swift */,
 			);
 			path = AddAlarm;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				0AD404352A1D2BE1002D06EF /* IsDarkTheme.swift in Sources */,
 				0A9E64EA2A26819B00A16892 /* AlarmVIew.swift in Sources */,
 				0A5288572A2A967900ADE430 /* AlarmEntity.swift in Sources */,
+				0ADADEC72A2B36D700028147 /* RepeatDaysBar.swift in Sources */,
 				0A34794B2A28C920007B88A6 /* AddAlarmBottomSheet.swift in Sources */,
 				0A3479522A28CC33007B88A6 /* AlarmDayButton.swift in Sources */,
 				0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */,

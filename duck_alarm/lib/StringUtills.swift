@@ -21,7 +21,7 @@ enum StringUtils {
 	static func getRepeatDaysAsString(repeatDays: [Int])->String {
 		if repeatDays.count == 7 {
 			return "Every Day"
-		} else if repeatDays.contains(5) && repeatDays.contains(6) {
+		} else if repeatDays.count == 2 && repeatDays.contains(5) && repeatDays.contains(6) {
 			return "Weekend"
 		} else if repeatDays.count == 5 && repeatDays.allSatisfy({ el in el != 5 && el != 6 }) {
 			return "Week Days"

@@ -13,5 +13,11 @@ class AlarmRepository: ObservableObject {
 
 	func saveAlarm(alarm: AlarmModel) {
 		db.container.viewContext.insert(AlarmEntity(model: alarm, context: db.container.viewContext))
+		do {
+			try db.container.viewContext.save()
+		} catch {
+			let nsError = error as NSError
+			fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+		}
 	}
 }
