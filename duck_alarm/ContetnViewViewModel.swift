@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-class ContentViewViewModel:ObservableObject{
-	init(alarmRepository: AlarmRepository){
+class ContentViewViewModel: ObservableObject {
+	init(alarmRepository: AlarmRepository) {
 		self.alarmRepository = alarmRepository
 	}
 	
@@ -16,15 +16,15 @@ class ContentViewViewModel:ObservableObject{
 	var isBottomSheetPresented = false
 	
 	@Published
-	var selectedAlarmModel:AlarmModel? = nil
+	var selectedAlarmModel: AlarmModel? = nil
 	
-	let alarmRepository:AlarmRepository
+	let alarmRepository: AlarmRepository
 	
-	func addAlarm(){
+	func addAlarm() {
 		isBottomSheetPresented = true
 	}
 	
-	func saveAlarm(selectedTime: Date, repeatDays: [Int]){
+	func saveAlarm(selectedTime: Date, repeatDays: [Int]) {
 		var hour = Calendar.current.component(.hour, from: selectedTime)
 		var isPm = false
 
@@ -39,14 +39,24 @@ class ContentViewViewModel:ObservableObject{
 
 		let model = AlarmModel(hour: hour, min: minute, isPm: isPm, repeatingDays: repeatDays, active: true)
 		
-		if let selectedAlarmModel{
+		if let selectedAlarmModel {
 			model.id = selectedAlarmModel.id
+			updateAlarm(alarmModel: model)
+		} else {
+			alarmRepository.insertAlarm(alarm: model)
 		}
-		
-		alarmRepository.insertAlarm(alarm: model)
 	}
 	
-	func updateAlarm(alarmModel: AlarmModel){
+	func updateAlarm(alarmModel: AlarmModel) {
 		alarmRepository.updateAlarm(alarm: alarmModel)
+	}
+	
+	func editAlarm(alarm: AlarmModel) {
+		selectedAlarmModel = alarm
+		isBottomSheetPresented = true
+	}
+	
+	func onBottomSheetClose() {
+		selectedAlarmModel = nil
 	}
 }

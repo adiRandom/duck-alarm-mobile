@@ -38,8 +38,8 @@ struct AddAlarmBottomSheet: View {
 
 	var body: some View {
 		VStack(alignment: .center) {
-			ThemedText("Add Alarm", isDisabled: false, fontSize: 24.0)
-				.padding([.bottom], 32)
+			ThemedText(isEditable ? "Edit Alarm" : "Add Alarm", isDisabled: false, fontSize: 24.0)
+				.padding([.bottom], 24)
 				.padding([.top], 48)
 			DatePicker(selection: $selectedTime, displayedComponents: .hourAndMinute) {}
 				.datePickerStyle(.wheel)
@@ -63,9 +63,9 @@ struct AddAlarmBottomSheet: View {
 			.padding([.top, .bottom], 8)
 			.background(Color(UIColor.secondarySystemFill))
 			.cornerRadius(12)
+			Spacer()
 		}
 		.padding([.trailing, .leading], 24)
-		.padding([.bottom], 12)
 	}
 }
 

@@ -12,7 +12,6 @@ struct ContentView: View {
 		alarmRepository: AlarmRepository()
 	)
 
-	// TODO: No data when starting the app
 	@FetchRequest(sortDescriptors: [SortDescriptor(\.isPm), SortDescriptor(\.hour), SortDescriptor(\.minute)])
 	private var alarmEntities: FetchedResults<AlarmEntity>
 	private var alarms: [AlarmModel] { alarmEntities.map { entity in entity.toModel() }}
@@ -24,10 +23,9 @@ struct ContentView: View {
 					ThemedText("No alarms set yet", fontStyle: .title2, isDisabled: true)
 				} else {
 					ForEach(alarms) { alarm in
-						AlarmView(alarm: alarm) {
+						AlarmView(alarm: alarm, onUpdateAlarm: {
 							alarm in viewModel.updateAlarm(alarmModel: alarm)
-							
-						}
+						}, onOpenEdit: { alarm in viewModel.editAlarm(alarm: alarm) })
 					}
 					Spacer()
 				}
@@ -48,9 +46,14 @@ struct ContentView: View {
 					viewModel.saveAlarm(selectedTime: selectedTime, repeatDays: repeatDays)
 				}
 				.presentationDragIndicator(.visible)
-				.presentationDetents([.medium])
+				.presentationDetents([.fraction(0.7)])
 			}
 		}
+		.onChange(of: viewModel.isBottomSheetPresented, perform: { isBottomSheetPresented in
+			if isBottomSheetPresented == false {
+				viewModel.onBottomSheetClose()
+			}
+		})
 	}
 }
 

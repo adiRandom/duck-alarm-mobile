@@ -10,6 +10,7 @@ import SwiftUI
 struct AlarmView: View {
 	@StateObject var alarm: AlarmModel
 	var onUpdateAlarm: ((AlarmModel) -> Void)? = nil
+	var onOpenEdit: ((AlarmModel) -> Void)? = nil
 
 	private func formatHour() -> String {
 		return "\(alarm.hour):\(alarm.min)"
@@ -28,6 +29,8 @@ struct AlarmView: View {
 					ThemedText(alarm.isPm == true ? "PM" : "AM",
 					           fontSize: ThemedText.DEFAULT_SIZE,
 					           isPrimaryColor: true)
+				}.onTapGesture {
+					onOpenEdit?(alarm)
 				}
 				Spacer()
 				Toggle("", isOn: $alarm.isActive)
