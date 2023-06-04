@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AlarmView: View {
-	@ObservedObject var alarm: AlarmModel
+	@StateObject var alarm: AlarmModel
+	var onUpdateAlarm: ((AlarmModel) -> Void)? = nil
 
 	private func formatHour() -> String {
 		return "\(alarm.hour):\(alarm.min)"
@@ -34,6 +35,9 @@ struct AlarmView: View {
 			ThemedText(StringUtils.getRepeatDaysAsString(repeatDays: alarm.repeatingDays), isDisabled: true)
 		}
 		.padding(EdgeInsets(top: 12.0, leading: 24.0, bottom: 12.0, trailing: 24.0))
+		.onChange(of: alarm.isActive, perform: {
+			_ in onUpdateAlarm?(alarm)
+		})
 	}
 }
 

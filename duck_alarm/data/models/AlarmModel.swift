@@ -7,7 +7,11 @@
 
 import Foundation
 
-class AlarmModel: ObservableObject, Identifiable {
+class AlarmModel: ObservableObject, Identifiable, Equatable {
+	static func == (lhs: AlarmModel, rhs: AlarmModel) -> Bool {
+		lhs.id == rhs.id
+	}
+	
 	var id: Int
 	let hour: Int
 	let min: Int

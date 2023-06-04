@@ -12,12 +12,7 @@ extension AlarmEntity {
 			forEntityName: "AlarmEntity",
 			in: context)!,
 		insertInto: context)
-		self.hour = Int16(model.hour)
-		self.minute = Int16(model.min)
-		self.isActive = model.isActive
-		self.repeatingDays = model.repeatingDays
-		self.id = Int64(model.id)
-		self.isPm = model.isPm
+		self.updateFromModel(model: model)
 	}
 
 	func toModel() -> AlarmModel {
@@ -27,5 +22,14 @@ extension AlarmEntity {
 		                  isPm: self.isPm,
 		                  repeatingDays: self.repeatingDays ?? [Int](),
 		                  active: self.isActive)
+	}
+	
+	func updateFromModel(model: AlarmModel){
+		self.hour = Int16(model.hour)
+		self.minute = Int16(model.min)
+		self.isActive = model.isActive
+		self.repeatingDays = model.repeatingDays
+		self.id = Int64(model.id)
+		self.isPm = model.isPm
 	}
 }

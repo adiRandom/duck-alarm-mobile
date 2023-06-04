@@ -43,6 +43,10 @@ class ContentViewViewModel:ObservableObject{
 			model.id = selectedAlarmModel.id
 		}
 		
-		alarmRepository.saveAlarm(alarm: model)
+		alarmRepository.insertAlarm(alarm: model)
+	}
+	
+	func updateAlarm(alarmModel: AlarmModel){
+		alarmRepository.updateAlarm(alarm: alarmModel)
 	}
 }

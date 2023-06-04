@@ -24,7 +24,10 @@ struct ContentView: View {
 					ThemedText("No alarms set yet", fontStyle: .title2, isDisabled: true)
 				} else {
 					ForEach(alarms) { alarm in
-						AlarmView(alarm: alarm)
+						AlarmView(alarm: alarm) {
+							alarm in viewModel.updateAlarm(alarmModel: alarm)
+							
+						}
 					}
 					Spacer()
 				}
