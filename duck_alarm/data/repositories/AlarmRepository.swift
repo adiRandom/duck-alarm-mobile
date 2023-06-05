@@ -21,26 +21,41 @@ class AlarmRepository: ObservableObject {
 		}
 	}
 
+	func getAlarmList() -> [AlarmModel] {
+		let fetchRequest = AlarmEntity.fetchRequest()
+		fetchRequest.sortDescriptors = [
+			NSSortDescriptor(SortDescriptor<AlarmEntity>(\.isPm)),
+			NSSortDescriptor(SortDescriptor<AlarmEntity>(\.hour)),
+			NSSortDescriptor(SortDescriptor<AlarmEntity>(\.minute)),
+		]
+		do {
+			let entities = try db.container.viewContext.fetch(fetchRequest)
+			return entities.map { $0.toModel() }
+		} catch {
+			return []
+		}
+	}
+
 	private func getAlarmEntity(id: Int) -> AlarmEntity? {
 		let fetchRequest = AlarmEntity.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "id == %lld", id)
-		do{
+		do {
 			let fetchResult = try db.container.viewContext.fetch(fetchRequest)
 			return fetchResult.first
-		}catch{
+		} catch {
 			return nil
 		}
 	}
 
 	func updateAlarm(alarm: AlarmModel) {
-		guard let alarmEntity = getAlarmEntity(id: alarm.id) else{
+		guard let alarmEntity = getAlarmEntity(id: alarm.id) else {
 			return
 		}
-		
+
 		alarmEntity.updateFromModel(model: alarm)
-		do{
+		do {
 			try db.container.viewContext.save()
-		} catch{
+		} catch {
 			return
 		}
 	}

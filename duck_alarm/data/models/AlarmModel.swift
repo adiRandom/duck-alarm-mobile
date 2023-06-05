@@ -7,17 +7,16 @@
 
 import Foundation
 
-class AlarmModel: ObservableObject, Identifiable, Equatable {
+struct AlarmModel: Hashable, Identifiable, Equatable{
 	static func == (lhs: AlarmModel, rhs: AlarmModel) -> Bool {
-		lhs.id == rhs.id
+		lhs.id == rhs.id && lhs.hour == rhs.hour && lhs.min == rhs.min && lhs.isPm == rhs.isPm
 	}
-	
+
 	var id: Int
 	let hour: Int
 	let min: Int
 	let isPm: Bool
 	var repeatingDays: [Int]
-	@Published
 	var isActive: Bool
 
 	init(
@@ -35,13 +34,22 @@ class AlarmModel: ObservableObject, Identifiable, Equatable {
 		self.repeatingDays = repeatingDays
 		self.isActive = active
 	}
-	
-	init(){
+
+	init() {
 		self.id = Int.random(in: 0 ..< Int.max)
 		self.hour = 12
 		self.min = 00
 		self.isPm = true
 		self.repeatingDays = []
 		self.isActive = true
+	}
+	
+	init(alarm: AlarmModel){
+		self.id = alarm.id
+		self.hour = alarm.hour
+		self.min = alarm.min
+		self.isPm = alarm.isPm
+		self.repeatingDays = alarm.repeatingDays
+		self.isActive = alarm.isActive
 	}
 }

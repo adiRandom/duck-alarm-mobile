@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct AlarmView: View {
-	@StateObject var alarm: AlarmModel
-	var onUpdateAlarm: ((AlarmModel) -> Void)? = nil
+	let alarm: AlarmModel
+	@State var isEnabled: Bool
+	var onIsActiveChange: ((Bool) -> Void)? = nil
 	var onOpenEdit: ((AlarmModel) -> Void)? = nil
+
+	init(alarm: AlarmModel,
+	     onIsActiveChange: ((Bool) -> Void)? = nil,
+	     onOpenEdit: ((AlarmModel) -> Void)? = nil)
+	{
+		self.alarm = alarm
+		self.isEnabled = alarm.isActive
+		self.onIsActiveChange = onIsActiveChange
+		self.onOpenEdit = onOpenEdit
+	}
 
 	private func formatHour() -> String {
 		return "\(alarm.hour):\(alarm.min)"
@@ -22,7 +33,7 @@ struct AlarmView: View {
 				HStack(alignment: .lastTextBaseline) {
 					ThemedText(
 						StringUtils.formatHourAndMin(hour: alarm.hour, min: alarm.min),
-						isDisabled: !alarm.isActive,
+						isDisabled: !isEnabled,
 						fontSize: 36.0,
 						fontWeight: .semibold
 					)
@@ -33,23 +44,23 @@ struct AlarmView: View {
 					onOpenEdit?(alarm)
 				}
 				Spacer()
-				Toggle("", isOn: $alarm.isActive)
+				Toggle("", isOn: $isEnabled)
 			}
 			ThemedText(StringUtils.getRepeatDaysAsString(repeatDays: alarm.repeatingDays), isDisabled: true)
 		}
 		.padding(EdgeInsets(top: 12.0, leading: 24.0, bottom: 12.0, trailing: 24.0))
-		.onChange(of: alarm.isActive, perform: {
-			_ in onUpdateAlarm?(alarm)
+		.onChange(of: isEnabled, perform: {
+			isActive in onIsActiveChange?(isActive)
 		})
 	}
 }
 
 struct AlarmVIew_Previews: PreviewProvider {
 	static var previews: some View {
-		@ObservedObject var alarm = AlarmModel(hour: 9, min: 25, isPm: false, repeatingDays: [0, 3, 5], active: true)
-		@ObservedObject var alarmWeekend = AlarmModel(hour: 12, min: 25, isPm: false, repeatingDays: [5, 6], active: false)
-		@ObservedObject var alarmWeekdays = AlarmModel(hour: 9, min: 00, isPm: true, repeatingDays: [0, 1, 2, 3, 4], active: false)
-		@ObservedObject var alarmAll = AlarmModel(hour: 11, min: 02, isPm: true, repeatingDays: [0, 1, 2, 3, 4, 5, 6], active: true)
+		let alarm = AlarmModel(hour: 9, min: 25, isPm: false, repeatingDays: [0, 3, 5], active: true)
+		let alarmWeekend = AlarmModel(hour: 12, min: 25, isPm: false, repeatingDays: [5, 6], active: false)
+		let alarmWeekdays = AlarmModel(hour: 9, min: 00, isPm: true, repeatingDays: [0, 1, 2, 3, 4], active: false)
+		let alarmAll = AlarmModel(hour: 11, min: 02, isPm: true, repeatingDays: [0, 1, 2, 3, 4, 5, 6], active: true)
 
 		Group {
 			AlarmView(alarm: alarm).previewDisplayName("Individual Days")

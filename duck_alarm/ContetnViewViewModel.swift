@@ -10,6 +10,8 @@ import SwiftUI
 class ContentViewViewModel: ObservableObject {
 	init(alarmRepository: AlarmRepository) {
 		self.alarmRepository = alarmRepository
+		
+		self.fetchAlarms()
 	}
 	
 	@Published
@@ -17,6 +19,9 @@ class ContentViewViewModel: ObservableObject {
 	
 	@Published
 	var selectedAlarmModel: AlarmModel? = nil
+	
+	@Published
+	var alarms: [AlarmModel] = []
 	
 	let alarmRepository: AlarmRepository
 	
@@ -37,18 +42,25 @@ class ContentViewViewModel: ObservableObject {
 
 		let minute = Calendar.current.component(.minute, from: selectedTime)
 
-		let model = AlarmModel(hour: hour, min: minute, isPm: isPm, repeatingDays: repeatDays, active: true)
+		var model = AlarmModel(hour: hour, min: minute, isPm: isPm, repeatingDays: repeatDays, active: true)
 		
 		if let selectedAlarmModel {
 			model.id = selectedAlarmModel.id
 			updateAlarm(alarmModel: model)
+			fetchAlarms()
 		} else {
 			alarmRepository.insertAlarm(alarm: model)
 		}
 	}
 	
-	func updateAlarm(alarmModel: AlarmModel) {
+	private func updateAlarm(alarmModel: AlarmModel) {
 		alarmRepository.updateAlarm(alarm: alarmModel)
+	}
+	
+	func onIsActiveChange(alarm:AlarmModel, isActive: Bool){
+		var newAlarm = AlarmModel(alarm: alarm)
+		newAlarm.isActive = isActive
+		updateAlarm(alarmModel: newAlarm)
 	}
 	
 	func editAlarm(alarm: AlarmModel) {
@@ -58,5 +70,10 @@ class ContentViewViewModel: ObservableObject {
 	
 	func onBottomSheetClose() {
 		selectedAlarmModel = nil
+	}
+	
+	private func fetchAlarms(){
+		let newAlarms = alarmRepository.getAlarmList()
+		self.alarms = newAlarms
 	}
 }
