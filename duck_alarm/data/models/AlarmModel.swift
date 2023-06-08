@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct AlarmModel: Hashable, Identifiable, Equatable{
 	static func == (lhs: AlarmModel, rhs: AlarmModel) -> Bool {
 		lhs.id == rhs.id && lhs.hour == rhs.hour && lhs.min == rhs.min && lhs.isPm == rhs.isPm
 	}
+	
 
 	var id: Int
 	let hour: Int

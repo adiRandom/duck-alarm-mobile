@@ -30,27 +30,20 @@ class ContentViewViewModel: ObservableObject {
 	}
 	
 	func saveAlarm(selectedTime: Date, repeatDays: [Int]) {
-		var hour = Calendar.current.component(.hour, from: selectedTime)
-		var isPm = false
-
-		if hour > 12 {
-			isPm = true
-			hour -= 12
-		} else if hour == 12 {
-			isPm = true
-		}
-
-		let minute = Calendar.current.component(.minute, from: selectedTime)
+		let hour =	selectedTime.get12hHour()
+		let isPm = selectedTime.isPm()
+		let minute = selectedTime.getMinute()
 
 		var model = AlarmModel(hour: hour, min: minute, isPm: isPm, repeatingDays: repeatDays, active: true)
 		
 		if let selectedAlarmModel {
 			model.id = selectedAlarmModel.id
 			updateAlarm(alarmModel: model)
-			fetchAlarms()
 		} else {
 			alarmRepository.insertAlarm(alarm: model)
 		}
+		
+		fetchAlarms()
 	}
 	
 	private func updateAlarm(alarmModel: AlarmModel) {

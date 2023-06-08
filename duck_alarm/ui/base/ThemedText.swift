@@ -9,48 +9,63 @@ import SwiftUI
 
 struct ThemedText: View {
 	@IsDarkMode var isDarkMode
-	var isDisabled: Bool
 	var text: String
 	var fontSize: CGFloat? = nil
 	var fontStyle: Font? = nil
 	var fontWeight: Font.Weight? = nil
-	var isPrimaryColor: Bool = false
+	var textColor: ThemeColor? = nil
+	
+	init(_ text: String){
+		self.text = text
+	}
 
+	@available(*, deprecated, message: "Use the color init")
 	init(_ text: String,
 	     isDisabled: Bool = false,
-		 fontSize: CGFloat,
+	     fontSize: CGFloat,
 	     fontWeight: Font.Weight = .regular,
 	     isPrimaryColor: Bool = false)
 	{
 		self.text = text
-		self.isDisabled = isDisabled
+
+		if isPrimaryColor {
+			textColor = .Primary
+		}
+
+		if isDisabled {
+			textColor = .Disabled
+		}
+
 		self.fontSize = fontSize
 		self.fontWeight = fontWeight
-		self.isPrimaryColor = isPrimaryColor
 	}
 
+	@available(*, deprecated, message: "Use the color init")
 	init(_ text: String, fontStyle: Font = .body, isDisabled: Bool = false) {
 		self.text = text
-		self.isDisabled = isDisabled
+
+		if isDisabled {
+			textColor = .Disabled
+		}
+
 		self.fontStyle = fontStyle
 	}
 
-	private func getTextColor() -> Color? {
-		if isDisabled {
-			if isDarkMode {
-				return Theme.DISABLED_DARK
-			} else {
-				return Theme.DISABLED_LIGHT
-			}
-		} else if isPrimaryColor{
-			if isDarkMode {
-				return Theme.PRIMARY_COLOR_DARK
-			} else {
-				return Theme.PRIMARY_COLOR
-			}
-		} else{
-			return nil
-		}
+	init(_ text: String,
+	     fontSize: CGFloat,
+	     fontWeight: Font.Weight = .regular,
+	     textColor: ThemeColor? = nil)
+	{
+		self.text = text
+		self.textColor = textColor
+		self.fontSize = fontSize
+		self.fontWeight = fontWeight
+	}
+	
+	init(_ text: String, fontStyle: Font = .body,   textColor: ThemeColor? = nil) {
+		self.text = text
+		self.textColor = textColor
+		self.fontStyle = fontStyle
 	}
 
 	private func getFont() -> Font {
@@ -64,9 +79,9 @@ struct ThemedText: View {
 	}
 
 	var body: some View {
-		Text(text).foregroundColor(getTextColor()).font(getFont())
+		Text(text).foregroundColor(textColor?.resolveColor(isDarkTheme: isDarkMode)).font(getFont())
 	}
-	
+
 	static let DEFAULT_SIZE = 17.0
 }
 

@@ -20,6 +20,9 @@
 		0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288502A29011800ADE430 /* TimeUtils.swift */; };
 		0A5288542A2A942000ADE430 /* AlarmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288532A2A942000ADE430 /* AlarmRepository.swift */; };
 		0A5288572A2A967900ADE430 /* AlarmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288562A2A967900ADE430 /* AlarmEntity.swift */; };
+		0A6DE3942A30EBAE0095D453 /* DismissAlarmScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DE3932A30EBAE0095D453 /* DismissAlarmScreen.swift */; };
+		0A8B5D8D2A32791C00D8BC65 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B5D8C2A32791C00D8BC65 /* ThemeColor.swift */; };
+		0A8B5D8F2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B5D8E2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift */; };
 		0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9977C72A28D31100D96A3C /* Modifiers.swift */; };
 		0A9E64EA2A26819B00A16892 /* AlarmVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E64E92A26819B00A16892 /* AlarmVIew.swift */; };
 		0A9E64ED2A2682C800A16892 /* StringUtills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E64EC2A2682C800A16892 /* StringUtills.swift */; };
@@ -48,6 +51,9 @@
 		0A5288502A29011800ADE430 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		0A5288532A2A942000ADE430 /* AlarmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRepository.swift; sourceTree = "<group>"; };
 		0A5288562A2A967900ADE430 /* AlarmEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEntity.swift; sourceTree = "<group>"; };
+		0A6DE3932A30EBAE0095D453 /* DismissAlarmScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAlarmScreen.swift; sourceTree = "<group>"; };
+		0A8B5D8C2A32791C00D8BC65 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
+		0A8B5D8E2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAlarmScreenViewModel.swift; sourceTree = "<group>"; };
 		0A9977C72A28D31100D96A3C /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		0A9E64E92A26819B00A16892 /* AlarmVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVIew.swift; sourceTree = "<group>"; };
 		0A9E64EC2A2682C800A16892 /* StringUtills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtills.swift; sourceTree = "<group>"; };
@@ -139,6 +145,15 @@
 			path = entities;
 			sourceTree = "<group>";
 		};
+		0A6DE3922A30EB980095D453 /* DismissAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				0A6DE3932A30EBAE0095D453 /* DismissAlarmScreen.swift */,
+				0A8B5D8E2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift */,
+			);
+			path = DismissAlarm;
+			sourceTree = "<group>";
+		};
 		0A9E64EB2A2682B300A16892 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,10 +185,12 @@
 		0AD404292A1D275F002D06EF /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				0A6DE3922A30EB980095D453 /* DismissAlarm */,
 				0A34794E2A28CBE1007B88A6 /* AddAlarm */,
 				0AD404332A1D2BD0002D06EF /* utils */,
 				0AD4042A2A1D276C002D06EF /* base */,
 				0AD4042D2A1D27A3002D06EF /* Theme.swift */,
+				0A8B5D8C2A32791C00D8BC65 /* ThemeColor.swift */,
 				0A9E64E92A26819B00A16892 /* AlarmVIew.swift */,
 				0A9977C72A28D31100D96A3C /* Modifiers.swift */,
 			);
@@ -268,8 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6DE3942A30EBAE0095D453 /* DismissAlarmScreen.swift in Sources */,
 				0A3479542A28CDC4007B88A6 /* PrimaryColor.swift in Sources */,
 				0A9E64ED2A2682C800A16892 /* StringUtills.swift in Sources */,
+				0A8B5D8F2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift in Sources */,
 				0AD403EF2A1D212A002D06EF /* AlarmModel.swift in Sources */,
 				0A34794D2A28CBBF007B88A6 /* NumberUtils.swift in Sources */,
 				0AD404352A1D2BE1002D06EF /* IsDarkTheme.swift in Sources */,
@@ -278,6 +297,7 @@
 				0ADADEC72A2B36D700028147 /* RepeatDaysBar.swift in Sources */,
 				0A34794B2A28C920007B88A6 /* AddAlarmBottomSheet.swift in Sources */,
 				0A3479522A28CC33007B88A6 /* AlarmDayButton.swift in Sources */,
+				0A8B5D8D2A32791C00D8BC65 /* ThemeColor.swift in Sources */,
 				0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */,
 				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
 				0A357F022A115F6C00EF13E5 /* ContentView.swift in Sources */,
@@ -421,6 +441,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "duck-alarm-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -451,6 +472,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "duck-alarm-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
