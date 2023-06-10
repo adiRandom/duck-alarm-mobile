@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A3434692A34F6F0000D85AF /* PreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */; };
+		0A34346F2A350053000D85AF /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34346E2A350053000D85AF /* PrimaryButton.swift */; };
 		0A34794B2A28C920007B88A6 /* AddAlarmBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34794A2A28C920007B88A6 /* AddAlarmBottomSheet.swift */; };
 		0A34794D2A28CBBF007B88A6 /* NumberUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34794C2A28CBBF007B88A6 /* NumberUtils.swift */; };
 		0A3479522A28CC33007B88A6 /* AlarmDayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3479512A28CC33007B88A6 /* AlarmDayButton.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "duck-alarm-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesRepository.swift; sourceTree = "<group>"; };
+		0A34346E2A350053000D85AF /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		0A34794A2A28C920007B88A6 /* AddAlarmBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmBottomSheet.swift; sourceTree = "<group>"; };
 		0A34794C2A28CBBF007B88A6 /* NumberUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtils.swift; sourceTree = "<group>"; };
 		0A3479512A28CC33007B88A6 /* AlarmDayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDayButton.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				0A5288532A2A942000ADE430 /* AlarmRepository.swift */,
+				0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */,
 			);
 			path = repositories;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			children = (
 				0AD4042F2A1D27B1002D06EF /* ThemedLabel.swift */,
 				0AD404312A1D2A4B002D06EF /* ThemedText.swift */,
+				0A34346E2A350053000D85AF /* PrimaryButton.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				0AD404352A1D2BE1002D06EF /* IsDarkTheme.swift in Sources */,
 				0A9E64EA2A26819B00A16892 /* AlarmVIew.swift in Sources */,
 				0A5288572A2A967900ADE430 /* AlarmEntity.swift in Sources */,
+				0A3434692A34F6F0000D85AF /* PreferencesRepository.swift in Sources */,
 				0ADADEC72A2B36D700028147 /* RepeatDaysBar.swift in Sources */,
 				0A34794B2A28C920007B88A6 /* AddAlarmBottomSheet.swift in Sources */,
 				0A3479522A28CC33007B88A6 /* AlarmDayButton.swift in Sources */,
@@ -302,6 +309,7 @@
 				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
 				0A357F022A115F6C00EF13E5 /* ContentView.swift in Sources */,
 				0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */,
+				0A34346F2A350053000D85AF /* PrimaryButton.swift in Sources */,
 				0A5288542A2A942000ADE430 /* AlarmRepository.swift in Sources */,
 				0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */,
 				0A9E64EF2A268B9000A16892 /* ContetnViewViewModel.swift in Sources */,
