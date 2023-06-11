@@ -27,12 +27,14 @@ struct DismissAlarmScreen: View {
 				           fontSize: 36, textColor: .Primary)
 			}
 			Spacer()
-			// TODO: Make me pretty
-			Button("Silence") {}
-				.padding([.leading, .trailing], 32)
-				.background(ThemeColor.Primary.resolveColor(isDarkTheme: false))
-				.cornerRadius(16)
-				.buttonStyle(.bordered)
+			Button(action: {}) {
+				Text("Silence")
+					.foregroundColor(.white)
+					.padding([.leading, .trailing], 48)
+					.padding([.top,.bottom], 12)
+					.background(ThemeColor.Primary.resolveColor(isDarkTheme: false))
+					.cornerRadius(16)
+			}
 
 			Spacer()
 
