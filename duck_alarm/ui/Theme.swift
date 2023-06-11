@@ -12,6 +12,7 @@ struct Theme{
 	static let PRIMARY_COLOR_DARK = Color(hex: 0xFCD74E)
 	static let DISABLED_LIGHT = Color(hex:0x666666)
 	static let DISABLED_DARK = Color(hex:0xAFAFAF)
+	static let LABEL = Color(hex: 0xDCDCDC)
 }
 
 

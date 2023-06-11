@@ -41,11 +41,11 @@ class PreferencesRepository {
 	
 	private func initPropertesToDefaults(){
 		if userPrefs.object(forKey: PreferencesRepository.STEPS_TO_DISMISS) == nil{
-			stepsToDismiss = 60
+			stepsToDismiss = 30
 		}
 		
 		if userPrefs.object(forKey: PreferencesRepository.MUTE_FOR_TIME) == nil{
-			muteForTime = 60
+			muteForTime = 30
 		}
 	}
 	

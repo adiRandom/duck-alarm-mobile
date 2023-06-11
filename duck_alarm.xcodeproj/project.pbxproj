@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A28EDC82A36377A00377DE0 /* SettingsBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28EDC72A36377A00377DE0 /* SettingsBottomSheet.swift */; };
+		0A28EDCA2A363B0100377DE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28EDC92A363B0100377DE0 /* Extensions.swift */; };
 		0A3434692A34F6F0000D85AF /* PreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */; };
 		0A34794B2A28C920007B88A6 /* AddAlarmBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34794A2A28C920007B88A6 /* AddAlarmBottomSheet.swift */; };
 		0A34794D2A28CBBF007B88A6 /* NumberUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34794C2A28CBBF007B88A6 /* NumberUtils.swift */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "duck-alarm-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0A28EDC72A36377A00377DE0 /* SettingsBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBottomSheet.swift; sourceTree = "<group>"; };
+		0A28EDC92A363B0100377DE0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesRepository.swift; sourceTree = "<group>"; };
 		0A34794A2A28C920007B88A6 /* AddAlarmBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmBottomSheet.swift; sourceTree = "<group>"; };
 		0A34794C2A28CBBF007B88A6 /* NumberUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtils.swift; sourceTree = "<group>"; };
@@ -79,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A28EDC62A36375600377DE0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0A28EDC72A36377A00377DE0 /* SettingsBottomSheet.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		0A34794E2A28CBE1007B88A6 /* AddAlarm */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +200,7 @@
 		0AD404292A1D275F002D06EF /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				0A28EDC62A36375600377DE0 /* Settings */,
 				0A6DE3922A30EB980095D453 /* DismissAlarm */,
 				0A34794E2A28CBE1007B88A6 /* AddAlarm */,
 				0AD404332A1D2BD0002D06EF /* utils */,
@@ -214,6 +227,7 @@
 			children = (
 				0AD404342A1D2BE1002D06EF /* IsDarkTheme.swift */,
 				0A3479532A28CDC4007B88A6 /* PrimaryColor.swift */,
+				0A28EDC92A363B0100377DE0 /* Extensions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -289,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A6DE3942A30EBAE0095D453 /* DismissAlarmScreen.swift in Sources */,
+				0A28EDCA2A363B0100377DE0 /* Extensions.swift in Sources */,
 				0A3479542A28CDC4007B88A6 /* PrimaryColor.swift in Sources */,
 				0A9E64ED2A2682C800A16892 /* StringUtills.swift in Sources */,
 				0A8B5D8F2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift in Sources */,
@@ -303,6 +318,7 @@
 				0A3479522A28CC33007B88A6 /* AlarmDayButton.swift in Sources */,
 				0A8B5D8D2A32791C00D8BC65 /* ThemeColor.swift in Sources */,
 				0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */,
+				0A28EDC82A36377A00377DE0 /* SettingsBottomSheet.swift in Sources */,
 				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
 				0A357F022A115F6C00EF13E5 /* ContentView.swift in Sources */,
 				0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */,

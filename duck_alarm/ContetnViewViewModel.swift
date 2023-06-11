@@ -11,11 +11,20 @@ class ContentViewViewModel: ObservableObject {
 	init(alarmRepository: AlarmRepository) {
 		self.alarmRepository = alarmRepository
 		
-		self.fetchAlarms()
+		fetchAlarms()
 	}
 	
 	@Published
 	var isBottomSheetPresented = false
+	
+	@Published
+	var isSettingsBottomSheetPresented = false
+	
+	@Published
+	var currentStepsGoal = 0
+	
+	@Published
+	var currentTimeForSilece = 0
 	
 	@Published
 	var selectedAlarmModel: AlarmModel? = nil
@@ -24,13 +33,14 @@ class ContentViewViewModel: ObservableObject {
 	var alarms: [AlarmModel] = []
 	
 	let alarmRepository: AlarmRepository
+	let preferencesRepository = PreferencesRepository.getInstance()
 	
 	func addAlarm() {
 		isBottomSheetPresented = true
 	}
 	
 	func saveAlarm(selectedTime: Date, repeatDays: [Int]) {
-		let hour =	selectedTime.get12hHour()
+		let hour = selectedTime.get12hHour()
 		let isPm = selectedTime.isPm()
 		let minute = selectedTime.getMinute()
 
@@ -50,7 +60,7 @@ class ContentViewViewModel: ObservableObject {
 		alarmRepository.updateAlarm(alarm: alarmModel)
 	}
 	
-	func onIsActiveChange(alarm:AlarmModel, isActive: Bool){
+	func onIsActiveChange(alarm: AlarmModel, isActive: Bool) {
 		var newAlarm = AlarmModel(alarm: alarm)
 		newAlarm.isActive = isActive
 		updateAlarm(alarmModel: newAlarm)
@@ -65,8 +75,19 @@ class ContentViewViewModel: ObservableObject {
 		selectedAlarmModel = nil
 	}
 	
-	private func fetchAlarms(){
+	private func fetchAlarms() {
 		let newAlarms = alarmRepository.getAlarmList()
-		self.alarms = newAlarms
+		alarms = newAlarms
+	}
+	
+	func showSettings() {
+		currentStepsGoal = preferencesRepository.stepsToDismiss
+		currentTimeForSilece = preferencesRepository.muteForTime
+		isSettingsBottomSheetPresented = true
+	}
+	
+	func onSave(stepGoal: Int, silenceTime: Int) {
+		preferencesRepository.stepsToDismiss = stepGoal
+		preferencesRepository.muteForTime = silenceTime
 	}
 }

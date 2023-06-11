@@ -36,5 +36,6 @@ extension ThemeColor{
 	static let Primary = ThemeColor(lightTheme: Theme.PRIMARY_COLOR, darkTheme: Theme.PRIMARY_COLOR_DARK)
 	static let Disabled = ThemeColor(lightTheme: Theme.DISABLED_LIGHT, darkTheme: Theme.DISABLED_DARK)
 	static let White = ThemeColor(color: .white)
+	static let Label = ThemeColor(color: Theme.LABEL)
 }
 

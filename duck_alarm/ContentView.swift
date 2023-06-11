@@ -28,12 +28,19 @@ struct ContentView: View {
 			}
 			.navigationTitle("Alarms")
 			.toolbar {
+				ToolbarItem(placement: .navigationBarLeading) {
+					Button(action: viewModel.showSettings) {
+						ThemedLabel(text: "Settings", systemIcon: "gear")
+					}
+				}
+
 				ToolbarItem(placement: .navigationBarTrailing) {
 					Button(action: viewModel.addAlarm) {
-						ThemedLabel(text: "Add Item", systemIcon: "plus").foregroundColor(.red)
+						ThemedLabel(text: "Add Item", systemIcon: "plus")
 					}
 				}
 			}
+
 			.sheet(isPresented: $viewModel.isBottomSheetPresented) {
 				AddAlarmBottomSheet(
 					alarmModel: viewModel.selectedAlarmModel,
@@ -44,12 +51,23 @@ struct ContentView: View {
 				.presentationDragIndicator(.visible)
 				.presentationDetents([.fraction(0.6)])
 			}
-		}
-		.onChange(of: viewModel.isBottomSheetPresented, perform: { isBottomSheetPresented in
-			if isBottomSheetPresented == false {
-				viewModel.onBottomSheetClose()
+
+			.sheet(isPresented: $viewModel.isSettingsBottomSheetPresented) {
+				SettingsBottomSheet(
+					stepsToDismiss: String(viewModel.currentStepsGoal),
+					timeForSilence: String(viewModel.currentTimeForSilece),
+					isPresented: $viewModel.isSettingsBottomSheetPresented
+				) { stepGoal, silenceTime in
+					viewModel.onSave(stepGoal: stepGoal, silenceTime: silenceTime)
+				}
+				.presentationDetents([.medium])
 			}
-		})
+			.onChange(of: viewModel.isBottomSheetPresented, perform: { isBottomSheetPresented in
+				if isBottomSheetPresented == false {
+					viewModel.onBottomSheetClose()
+				}
+			})
+		}
 	}
 }
 
