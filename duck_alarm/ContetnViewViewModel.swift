@@ -76,8 +76,10 @@ class ContentViewViewModel: ObservableObject {
 	}
 	
 	private func fetchAlarms() {
-		let newAlarms = alarmRepository.getAlarmList()
-		alarms = newAlarms
+		Task {
+			let newAlarms = await alarmRepository.getAlarmList()
+			alarms = newAlarms
+		}
 	}
 	
 	func showSettings() {

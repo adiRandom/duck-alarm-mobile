@@ -21,6 +21,7 @@ class DismissAlarmScreenViewModel: ObservableObject {
 	let stepGoal: Int
 	
 	private let preferencesRepository = PreferencesRepository.getInstance()
+	private let alarmRepository = AlarmRepository()
 	private let pedometer = CMPedometer()
 	
 	private func updateTimer() {
@@ -43,7 +44,6 @@ class DismissAlarmScreenViewModel: ObservableObject {
 		isPm = time.isPm()
 		self.time = StringUtils.formatHourAndMin(hour: hour, min: minute)
 		stepGoal = preferencesRepository.stepsToDismiss
-		
 	}
 	
 	func startTimer() {
@@ -60,7 +60,27 @@ class DismissAlarmScreenViewModel: ObservableObject {
 	}
 	
 	deinit {
+		stopPedometer()
+	}
+	
+	private func stopPedometer() {
 		timer.invalidate()
 		pedometerTimer.invalidate()
+	}
+	
+	private func onStep(data: CMPedometerData) {
+		steps += data.numberOfSteps.intValue
+		
+		if steps >= preferencesRepository.stepsToDismiss {
+			onDismiss()
+		}
+	}
+	
+	func onSilence() {
+		alarmRepository.silenceAlarm()
+	}
+	
+	private func onDismiss() {
+		alarmRepository.dismissAlarm()
 	}
 }

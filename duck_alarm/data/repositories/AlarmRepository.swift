@@ -22,8 +22,7 @@ class AlarmRepository: ObservableObject {
 		db.container.viewContext.insert(AlarmEntity(model: alarm, context: db.container.viewContext))
 		do {
 			try db.container.viewContext.save()
-			if withRemote
-			{
+			if withRemote {
 				try insertIntoFirestore(alarm: alarm)
 			}
 		} catch {
@@ -41,16 +40,16 @@ class AlarmRepository: ObservableObject {
 		]
 		do {
 			let entities = try db.container.viewContext.fetch(fetchRequest)
-			let models =  entities.map { $0.toModel() }
-			
-			if models.isEmpty{
+			let models = entities.map { $0.toModel() }
+
+			if models.isEmpty {
 				let remoteModels = await getAlarmsFromFirestore()
-				remoteModels.forEach{model in
+				remoteModels.forEach { model in
 					insertAlarm(alarm: model, withRemote: false)
 				}
-				
+
 				return remoteModels
-			}else{
+			} else {
 				return models
 			}
 		} catch {
@@ -87,25 +86,37 @@ class AlarmRepository: ObservableObject {
 		try firestore.collection(AlarmRepository.COLLECTION).document(String(alarm.id)).setData(from: alarm)
 	}
 
-	private func getAlarmsFromFirestore() async -> [AlarmModel]{
-		await withCheckedContinuation{continuation in
-			firestore.collection(AlarmRepository.COLLECTION).getDocuments{(querySnapshot, _) in
-				var result: [AlarmModel] = []
-				do{
-					for document in querySnapshot!.documents{
+	private func getAlarmsFromFirestore() async -> [AlarmModel] {
+		await withCheckedContinuation { continuation in
+			firestore.collection(AlarmRepository.COLLECTION).getDocuments { querySnapshot, _ in
+				do {
+					var result: [AlarmModel] = []
+
+					for document in querySnapshot!.documents {
 						let model = try document.data(as: AlarmModel.self)
 						result.append(model)
 					}
-				}catch{
-					
+
+					continuation.resume(returning: result)
+				} catch {
+					continuation.resume(returning: [])
 				}
-				
-				continuation.resume(returning: result)
 			}
 		}
 	}
-	
-	func dismissAlarm(){
+
+	func dismissAlarm() {
 		firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": false])
+	}
+
+	func silenceAlarm() {
+		Task {
+			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": false])
+
+			let sleepDuration = PreferencesRepository.getInstance().muteForTime
+			try await Task.sleep(for: .seconds(sleepDuration))
+
+			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": true])
+		}
 	}
 }
