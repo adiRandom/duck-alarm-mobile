@@ -8,13 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct AlarmModel: Hashable, Identifiable, Equatable{
-	static func == (lhs: AlarmModel, rhs: AlarmModel) -> Bool {
+public struct AlarmModel: Hashable, Identifiable, Equatable, Codable {
+	public static func == (lhs: AlarmModel, rhs: AlarmModel) -> Bool {
 		lhs.id == rhs.id && lhs.hour == rhs.hour && lhs.min == rhs.min && lhs.isPm == rhs.isPm
 	}
-	
 
-	var id: Int
+	public var id: Int
 	let hour: Int
 	let min: Int
 	let isPm: Bool
@@ -45,13 +44,22 @@ struct AlarmModel: Hashable, Identifiable, Equatable{
 		self.repeatingDays = []
 		self.isActive = true
 	}
-	
-	init(alarm: AlarmModel){
+
+	init(alarm: AlarmModel) {
 		self.id = alarm.id
 		self.hour = alarm.hour
 		self.min = alarm.min
 		self.isPm = alarm.isPm
 		self.repeatingDays = alarm.repeatingDays
 		self.isActive = alarm.isActive
+	}
+
+	enum CodingKeys: String, CodingKey {
+		case id
+		case hour
+		case min
+		case isPm
+		case repeatingDays
+		case isActive
 	}
 }

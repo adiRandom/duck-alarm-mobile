@@ -20,6 +20,10 @@
 		0A357F072A115F6D00EF13E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */; };
 		0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F082A115F6D00EF13E5 /* Persistence.swift */; };
 		0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */; };
+		0A491AFD2A3E10B300AAAD37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A491AFC2A3E10B300AAAD37 /* GoogleService-Info.plist */; };
+		0A491B002A3E120700AAAD37 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0A491AFF2A3E120700AAAD37 /* FirebaseFirestore */; };
+		0A491B022A3E120700AAAD37 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0A491B012A3E120700AAAD37 /* FirebaseFirestoreCombine-Community */; };
+		0A491B042A3E120700AAAD37 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A491B032A3E120700AAAD37 /* FirebaseFirestoreSwift */; };
 		0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288502A29011800ADE430 /* TimeUtils.swift */; };
 		0A5288542A2A942000ADE430 /* AlarmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288532A2A942000ADE430 /* AlarmRepository.swift */; };
 		0A5288572A2A967900ADE430 /* AlarmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288562A2A967900ADE430 /* AlarmEntity.swift */; };
@@ -54,6 +58,7 @@
 		0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A357F082A115F6D00EF13E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0A357F0B2A115F6D00EF13E5 /* duck_alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duck_alarm.xcdatamodel; sourceTree = "<group>"; };
+		0A491AFC2A3E10B300AAAD37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A5288502A29011800ADE430 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		0A5288532A2A942000ADE430 /* AlarmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRepository.swift; sourceTree = "<group>"; };
 		0A5288562A2A967900ADE430 /* AlarmEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEntity.swift; sourceTree = "<group>"; };
@@ -77,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A491B002A3E120700AAAD37 /* FirebaseFirestore in Frameworks */,
+				0A491B022A3E120700AAAD37 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				0A491B042A3E120700AAAD37 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +137,7 @@
 				0A357F012A115F6C00EF13E5 /* ContentView.swift */,
 				0A357F032A115F6D00EF13E5 /* Assets.xcassets */,
 				0A357F082A115F6D00EF13E5 /* Persistence.swift */,
+				0A491AFC2A3E10B300AAAD37 /* GoogleService-Info.plist */,
 				0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */,
 				0A357F052A115F6D00EF13E5 /* Preview Content */,
 			);
@@ -248,6 +257,11 @@
 			dependencies = (
 			);
 			name = duck_alarm;
+			packageProductDependencies = (
+				0A491AFF2A3E120700AAAD37 /* FirebaseFirestore */,
+				0A491B012A3E120700AAAD37 /* FirebaseFirestoreCombine-Community */,
+				0A491B032A3E120700AAAD37 /* FirebaseFirestoreSwift */,
+			);
 			productName = duck_alarm;
 			productReference = 0A357EFC2A115F6C00EF13E5 /* duck_alarm.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +290,9 @@
 				Base,
 			);
 			mainGroup = 0A357EF32A115F6C00EF13E5;
+			packageReferences = (
+				0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0A357EFD2A115F6C00EF13E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,6 +309,7 @@
 			files = (
 				0A357F072A115F6D00EF13E5 /* Preview Assets.xcassets in Resources */,
 				0A357F042A115F6D00EF13E5 /* Assets.xcassets in Resources */,
+				0A491AFD2A3E10B300AAAD37 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +551,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A491AFF2A3E120700AAAD37 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		0A491B012A3E120700AAAD37 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		0A491B032A3E120700AAAD37 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */ = {
