@@ -36,6 +36,9 @@ class DismissAlarmScreenViewModel: ObservableObject {
 	private var timer: Timer = .init()
 	private var pedometerTimer = Timer()
 	
+	@Published
+	var isSleepButtonDisabled: Bool = false
+	
 	init() {
 		let time = Date()
 		let hour = time.get12hHour()
@@ -53,7 +56,9 @@ class DismissAlarmScreenViewModel: ObservableObject {
 		pedometerTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
 			self?.pedometer.queryPedometerData(from: Date() - 5, to: Date()) { data, _ in
 				DispatchQueue.main.sync {
-					self?.steps += data?.numberOfSteps.intValue ?? 0
+					if let data {
+						self?.onStep(data: data)
+					}
 				}
 			}
 		}
@@ -77,10 +82,17 @@ class DismissAlarmScreenViewModel: ObservableObject {
 	}
 	
 	func onSilence() {
-		alarmRepository.silenceAlarm()
+		alarmRepository.silenceAlarm(){ [weak self] isSilenced in
+			self?.isSleepButtonDisabled = isSilenced
+		}
 	}
 	
 	private func onDismiss() {
-		alarmRepository.dismissAlarm()
+		Task{
+			await alarmRepository.dismissAlarm()
+			await MainActor.run{
+				exit(0)
+			}
+		}
 	}
 }

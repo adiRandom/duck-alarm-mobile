@@ -24,8 +24,8 @@ struct duck_alarmApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//			DismissAlarmScreen()
+//            ContentView()
+			DismissAlarmScreen()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
 		}
     }

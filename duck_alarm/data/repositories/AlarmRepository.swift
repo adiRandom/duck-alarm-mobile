@@ -23,7 +23,7 @@ class AlarmRepository: ObservableObject {
 		do {
 			try db.container.viewContext.save()
 			if withRemote {
-				try insertIntoFirestore(alarm: alarm)
+				Task { try await insertIntoFirestore(alarm: alarm) }
 			}
 		} catch {
 			let nsError = error as NSError
@@ -76,14 +76,16 @@ class AlarmRepository: ObservableObject {
 		alarmEntity.updateFromModel(model: alarm)
 		do {
 			try db.container.viewContext.save()
-			try insertIntoFirestore(alarm: alarm)
+			Task {
+				try await insertIntoFirestore(alarm: alarm)
+			}
 		} catch {
 			return
 		}
 	}
 
-	private func insertIntoFirestore(alarm: AlarmModel) throws {
-		try firestore.collection(AlarmRepository.COLLECTION).document(String(alarm.id)).setData(from: alarm)
+	private func insertIntoFirestore(alarm: AlarmModel) async throws {
+		try await firestore.collection(AlarmRepository.COLLECTION).document(String(alarm.id)).setData(from: alarm)
 	}
 
 	private func getAlarmsFromFirestore() async -> [AlarmModel] {
@@ -105,18 +107,25 @@ class AlarmRepository: ObservableObject {
 		}
 	}
 
-	func dismissAlarm() {
-		firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": false])
+	func dismissAlarm() async {
+		do{
+			try await firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": false])
+		}catch{
+			
+		}
 	}
 
-	func silenceAlarm() {
+	func silenceAlarm(onSilenceUpdate: @escaping (Bool) -> Void) {
 		Task {
+			onSilenceUpdate(true)
 			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": false])
 
 			let sleepDuration = PreferencesRepository.getInstance().muteForTime
 			try await Task.sleep(for: .seconds(sleepDuration))
 
 			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": true])
+
+			onSilenceUpdate(false)
 		}
 	}
 }

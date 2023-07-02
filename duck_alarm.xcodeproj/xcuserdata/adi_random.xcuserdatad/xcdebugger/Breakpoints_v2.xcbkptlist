@@ -3,4 +3,54 @@
    uuid = "C65C4786-E931-4CC4-B2EC-D7C8E45F7DCC"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA9A6310-7860-4C00-9663-6A81DDC2C6C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "duck_alarm/ui/DismissAlarm/DismissAlarmScreenViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "onDismiss()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BA9A6310-7860-4C00-9663-6A81DDC2C6C5 - bef2484f67ef6db4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duck_alarm.DismissAlarmScreenViewModel.onDismiss() -&gt; ()"
+                  moduleName = "duck_alarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi_random/XCode%20Projects/duck_alarm/duck_alarm/ui/DismissAlarm/DismissAlarmScreenViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "BA9A6310-7860-4C00-9663-6A81DDC2C6C5 - bef2484f67ef6c72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duck_alarm.DismissAlarmScreenViewModel.onDismiss() -&gt; ()"
+                  moduleName = "duck_alarm"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi_random/XCode%20Projects/duck_alarm/duck_alarm/ui/DismissAlarm/DismissAlarmScreenViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

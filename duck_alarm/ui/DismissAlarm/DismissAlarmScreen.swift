@@ -27,14 +27,15 @@ struct DismissAlarmScreen: View {
 				           fontSize: 36, textColor: .Primary)
 			}
 			Spacer()
-			Button(action: {}) {
+			Button(action: viewModel.onSilence) {
 				Text("Silence")
 					.foregroundColor(.white)
 					.padding([.leading, .trailing], 48)
-					.padding([.top,.bottom], 12)
-					.background(ThemeColor.Primary.resolveColor(isDarkTheme: false))
+					.padding([.top, .bottom], 12)
+					.background(viewModel.isSleepButtonDisabled ? ThemeColor.Disabled.resolveColor(isDarkTheme: false) : ThemeColor.Primary.resolveColor(isDarkTheme: false))
 					.cornerRadius(16)
 			}
+			.disabled(viewModel.isSleepButtonDisabled)
 
 			Spacer()
 
