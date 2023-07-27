@@ -31,6 +31,7 @@
 		0A5ADF202A6731AA009007DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ADF1F2A6731AA009007DE /* GoogleService-Info.plist */; };
 		0A6DE3942A30EBAE0095D453 /* DismissAlarmScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DE3932A30EBAE0095D453 /* DismissAlarmScreen.swift */; };
 		0A7859052A72D78100D1B7BB /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7859042A72D78100D1B7BB /* NavController.swift */; };
+		0A7859072A72FAB200D1B7BB /* NavRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7859062A72FAB200D1B7BB /* NavRoot.swift */; };
 		0A8B5D8D2A32791C00D8BC65 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B5D8C2A32791C00D8BC65 /* ThemeColor.swift */; };
 		0A8B5D8F2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B5D8E2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift */; };
 		0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9977C72A28D31100D96A3C /* Modifiers.swift */; };
@@ -68,6 +69,7 @@
 		0A5ADF1F2A6731AA009007DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A6DE3932A30EBAE0095D453 /* DismissAlarmScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAlarmScreen.swift; sourceTree = "<group>"; };
 		0A7859042A72D78100D1B7BB /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		0A7859062A72FAB200D1B7BB /* NavRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRoot.swift; sourceTree = "<group>"; };
 		0A8B5D8C2A32791C00D8BC65 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		0A8B5D8E2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAlarmScreenViewModel.swift; sourceTree = "<group>"; };
 		0A9977C72A28D31100D96A3C /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				0AD403EC2A1D20EC002D06EF /* data */,
 				0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */,
 				0A357EFF2A115F6C00EF13E5 /* duck_alarmApp.swift */,
+				0A7859062A72FAB200D1B7BB /* NavRoot.swift */,
 				0A357F012A115F6C00EF13E5 /* ContentView.swift */,
 				0A7859042A72D78100D1B7BB /* NavController.swift */,
 				0A357F032A115F6D00EF13E5 /* Assets.xcassets */,
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A6DE3942A30EBAE0095D453 /* DismissAlarmScreen.swift in Sources */,
+				0A7859072A72FAB200D1B7BB /* NavRoot.swift in Sources */,
 				0A28EDCA2A363B0100377DE0 /* Extensions.swift in Sources */,
 				0A3479542A28CDC4007B88A6 /* PrimaryColor.swift in Sources */,
 				0A9E64ED2A2682C800A16892 /* StringUtills.swift in Sources */,

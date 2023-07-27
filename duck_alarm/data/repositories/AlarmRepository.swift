@@ -109,23 +109,23 @@ class AlarmRepository: ObservableObject {
 
 	func dismissAlarm() async {
 		do{
-			try await firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": false])
+			try await firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).updateData(["shouldRing": false])
 		}catch{
 			
 		}
 	}
 
-	func silenceAlarm(onSilenceUpdate: @escaping (Bool) -> Void) {
+	func silenceAlarm(onSilenceUpdate: @MainActor @escaping (Bool) -> Void) {
 		Task {
-			onSilenceUpdate(true)
-			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": false])
+			await onSilenceUpdate(true)
+			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).updateData(["shouldRing": false])
 
 			let sleepDuration = PreferencesRepository.getInstance().muteForTime
 			try await Task.sleep(for: .seconds(sleepDuration))
 
-			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).setData(["shouldRing": true])
+			async let _: Void = try firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).updateData(["shouldRing": true])
 
-			onSilenceUpdate(false)
+			await onSilenceUpdate(false)
 		}
 	}
 }

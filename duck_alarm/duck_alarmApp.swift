@@ -85,14 +85,12 @@ struct duck_alarmApp: App {
 	let persistenceController = Database.shared
 	@UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
+
 	var body: some Scene {
 		WindowGroup {
-			if delegate.navController.currentRoute == NavController.ALARM {
-				DismissAlarmScreen()
+				NavRoot()
 					.environment(\.managedObjectContext, persistenceController.container.viewContext)
-			} else {
-				ContentView()
-			}
+					.environmentObject(delegate.navController)
 		}
 	}
 }

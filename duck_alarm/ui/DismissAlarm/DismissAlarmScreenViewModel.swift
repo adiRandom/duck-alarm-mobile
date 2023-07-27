@@ -82,15 +82,15 @@ class DismissAlarmScreenViewModel: ObservableObject {
 	}
 	
 	func onSilence() {
-		alarmRepository.silenceAlarm(){ [weak self] isSilenced in
+		alarmRepository.silenceAlarm {  [weak self] isSilenced in
 			self?.isSleepButtonDisabled = isSilenced
 		}
 	}
 	
 	private func onDismiss() {
-		Task{
+		Task {
 			await alarmRepository.dismissAlarm()
-			await MainActor.run{
+			await MainActor.run {
 				exit(0)
 			}
 		}
