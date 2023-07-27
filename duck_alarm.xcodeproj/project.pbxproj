@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A05DCFD2A670AFA0085E88B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 0A05DCFC2A670AFA0085E88B /* FirebaseMessaging */; };
 		0A28EDC82A36377A00377DE0 /* SettingsBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28EDC72A36377A00377DE0 /* SettingsBottomSheet.swift */; };
 		0A28EDCA2A363B0100377DE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28EDC92A363B0100377DE0 /* Extensions.swift */; };
 		0A3434692A34F6F0000D85AF /* PreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */; };
@@ -20,14 +21,16 @@
 		0A357F072A115F6D00EF13E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */; };
 		0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F082A115F6D00EF13E5 /* Persistence.swift */; };
 		0A357F0C2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */; };
-		0A491AFD2A3E10B300AAAD37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A491AFC2A3E10B300AAAD37 /* GoogleService-Info.plist */; };
 		0A491B002A3E120700AAAD37 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0A491AFF2A3E120700AAAD37 /* FirebaseFirestore */; };
 		0A491B022A3E120700AAAD37 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 0A491B012A3E120700AAAD37 /* FirebaseFirestoreCombine-Community */; };
 		0A491B042A3E120700AAAD37 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A491B032A3E120700AAAD37 /* FirebaseFirestoreSwift */; };
 		0A5288512A29011800ADE430 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288502A29011800ADE430 /* TimeUtils.swift */; };
 		0A5288542A2A942000ADE430 /* AlarmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288532A2A942000ADE430 /* AlarmRepository.swift */; };
 		0A5288572A2A967900ADE430 /* AlarmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5288562A2A967900ADE430 /* AlarmEntity.swift */; };
+		0A5ADF1C2A672C34009007DE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5ADF1B2A672C34009007DE /* FirebaseAnalytics */; };
+		0A5ADF202A6731AA009007DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ADF1F2A6731AA009007DE /* GoogleService-Info.plist */; };
 		0A6DE3942A30EBAE0095D453 /* DismissAlarmScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DE3932A30EBAE0095D453 /* DismissAlarmScreen.swift */; };
+		0A7859052A72D78100D1B7BB /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7859042A72D78100D1B7BB /* NavController.swift */; };
 		0A8B5D8D2A32791C00D8BC65 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B5D8C2A32791C00D8BC65 /* ThemeColor.swift */; };
 		0A8B5D8F2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B5D8E2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift */; };
 		0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9977C72A28D31100D96A3C /* Modifiers.swift */; };
@@ -43,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A05DCFE2A6711D60085E88B /* duck_alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = duck_alarm.entitlements; sourceTree = "<group>"; };
 		0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "duck-alarm-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0A28EDC72A36377A00377DE0 /* SettingsBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBottomSheet.swift; sourceTree = "<group>"; };
 		0A28EDC92A363B0100377DE0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -58,11 +62,12 @@
 		0A357F062A115F6D00EF13E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A357F082A115F6D00EF13E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0A357F0B2A115F6D00EF13E5 /* duck_alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duck_alarm.xcdatamodel; sourceTree = "<group>"; };
-		0A491AFC2A3E10B300AAAD37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A5288502A29011800ADE430 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		0A5288532A2A942000ADE430 /* AlarmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRepository.swift; sourceTree = "<group>"; };
 		0A5288562A2A967900ADE430 /* AlarmEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEntity.swift; sourceTree = "<group>"; };
+		0A5ADF1F2A6731AA009007DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A6DE3932A30EBAE0095D453 /* DismissAlarmScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAlarmScreen.swift; sourceTree = "<group>"; };
+		0A7859042A72D78100D1B7BB /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		0A8B5D8C2A32791C00D8BC65 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		0A8B5D8E2A327C9C00D8BC65 /* DismissAlarmScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAlarmScreenViewModel.swift; sourceTree = "<group>"; };
 		0A9977C72A28D31100D96A3C /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -82,8 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A05DCFD2A670AFA0085E88B /* FirebaseMessaging in Frameworks */,
 				0A491B002A3E120700AAAD37 /* FirebaseFirestore in Frameworks */,
 				0A491B022A3E120700AAAD37 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				0A5ADF1C2A672C34009007DE /* FirebaseAnalytics in Frameworks */,
 				0A491B042A3E120700AAAD37 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +98,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A05DCFB2A670AFA0085E88B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0A28EDC62A36375600377DE0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +128,7 @@
 			children = (
 				0A357EFE2A115F6C00EF13E5 /* duck_alarm */,
 				0A357EFD2A115F6C00EF13E5 /* Products */,
+				0A05DCFB2A670AFA0085E88B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +143,8 @@
 		0A357EFE2A115F6C00EF13E5 /* duck_alarm */ = {
 			isa = PBXGroup;
 			children = (
+				0A5ADF1F2A6731AA009007DE /* GoogleService-Info.plist */,
+				0A05DCFE2A6711D60085E88B /* duck_alarm.entitlements */,
 				0A9E64EE2A268B9000A16892 /* ContetnViewViewModel.swift */,
 				0A9E64EB2A2682B300A16892 /* lib */,
 				0AD404292A1D275F002D06EF /* ui */,
@@ -135,9 +152,9 @@
 				0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */,
 				0A357EFF2A115F6C00EF13E5 /* duck_alarmApp.swift */,
 				0A357F012A115F6C00EF13E5 /* ContentView.swift */,
+				0A7859042A72D78100D1B7BB /* NavController.swift */,
 				0A357F032A115F6D00EF13E5 /* Assets.xcassets */,
 				0A357F082A115F6D00EF13E5 /* Persistence.swift */,
-				0A491AFC2A3E10B300AAAD37 /* GoogleService-Info.plist */,
 				0A357F0A2A115F6D00EF13E5 /* duck_alarm.xcdatamodeld */,
 				0A357F052A115F6D00EF13E5 /* Preview Content */,
 			);
@@ -261,6 +278,8 @@
 				0A491AFF2A3E120700AAAD37 /* FirebaseFirestore */,
 				0A491B012A3E120700AAAD37 /* FirebaseFirestoreCombine-Community */,
 				0A491B032A3E120700AAAD37 /* FirebaseFirestoreSwift */,
+				0A05DCFC2A670AFA0085E88B /* FirebaseMessaging */,
+				0A5ADF1B2A672C34009007DE /* FirebaseAnalytics */,
 			);
 			productName = duck_alarm;
 			productReference = 0A357EFC2A115F6C00EF13E5 /* duck_alarm.app */;
@@ -309,7 +328,7 @@
 			files = (
 				0A357F072A115F6D00EF13E5 /* Preview Assets.xcassets in Resources */,
 				0A357F042A115F6D00EF13E5 /* Assets.xcassets in Resources */,
-				0A491AFD2A3E10B300AAAD37 /* GoogleService-Info.plist in Resources */,
+				0A5ADF202A6731AA009007DE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +354,7 @@
 				0A34794B2A28C920007B88A6 /* AddAlarmBottomSheet.swift in Sources */,
 				0A3479522A28CC33007B88A6 /* AlarmDayButton.swift in Sources */,
 				0A8B5D8D2A32791C00D8BC65 /* ThemeColor.swift in Sources */,
+				0A7859052A72D78100D1B7BB /* NavController.swift in Sources */,
 				0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */,
 				0A28EDC82A36377A00377DE0 /* SettingsBottomSheet.swift in Sources */,
 				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
@@ -472,14 +492,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = duck_alarm/duck_alarm.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"duck_alarm/Preview Content\"";
-				DEVELOPMENT_TEAM = 3NTA26LD35;
+				DEVELOPMENT_TEAM = Z869DSM7G2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "duck-alarm-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Required to dismiss alarm";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -490,8 +513,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.adi-random.duck-alarm";
+				PRODUCT_BUNDLE_IDENTIFIER = app.adiRandom.duckAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,14 +527,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = duck_alarm/duck_alarm.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"duck_alarm/Preview Content\"";
-				DEVELOPMENT_TEAM = 3NTA26LD35;
+				DEVELOPMENT_TEAM = Z869DSM7G2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "duck-alarm-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Required to dismiss alarm";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -521,8 +548,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "app.adi-random.duck-alarm";
+				PRODUCT_BUNDLE_IDENTIFIER = app.adiRandom.duckAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -564,6 +592,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0A05DCFC2A670AFA0085E88B /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		0A491AFF2A3E120700AAAD37 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -578,6 +611,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		0A5ADF1B2A672C34009007DE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A491AFE2A3E120700AAAD37 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 
