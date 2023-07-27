@@ -8,7 +8,7 @@
 import Foundation
 
 class NavController: ObservableObject{
-	@Published var startingRoute = HOME
+	@Published var currentRoute = HOME
 	
 	static let HOME = "home"
 	static let ALARM = "alarm"

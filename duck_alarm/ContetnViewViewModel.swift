@@ -40,20 +40,22 @@ class ContentViewViewModel: ObservableObject {
 	}
 	
 	func saveAlarm(selectedTime: Date, repeatDays: [Int]) {
-		let hour = selectedTime.get12hHour()
-		let isPm = selectedTime.isPm()
-		let minute = selectedTime.getMinute()
-
-		var model = AlarmModel(hour: hour, min: minute, isPm: isPm, repeatingDays: repeatDays, active: true)
-		
-		if let selectedAlarmModel {
-			model.id = selectedAlarmModel.id
-			updateAlarm(alarmModel: model)
-		} else {
-			alarmRepository.insertAlarm(alarm: model)
+		Task {
+			let hour = selectedTime.get12hHour()
+			let isPm = selectedTime.isPm()
+			let minute = selectedTime.getMinute()
+			
+			var model = AlarmModel(hour: hour, min: minute, isPm: isPm, repeatingDays: repeatDays, active: true)
+			
+			if let selectedAlarmModel {
+				model.id = selectedAlarmModel.id
+				updateAlarm(alarmModel: model)
+			} else {
+				alarmRepository.insertAlarm(alarm: model)
+			}
+			
+			fetchAlarms()
 		}
-		
-		fetchAlarms()
 	}
 	
 	private func updateAlarm(alarmModel: AlarmModel) {
@@ -78,7 +80,9 @@ class ContentViewViewModel: ObservableObject {
 	private func fetchAlarms() {
 		Task {
 			let newAlarms = await alarmRepository.getAlarmList()
-			alarms = newAlarms
+			await MainActor.run {
+				alarms = newAlarms
+			}
 		}
 	}
 	

@@ -26,6 +26,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 	}
 
 	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		navController.currentRoute = NavController.ALARM
 		completionHandler(UIBackgroundFetchResult.newData)
 	}
 }
@@ -69,12 +70,12 @@ extension AppDelegate: MessagingDelegate {
 @available(iOS 10.0, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
 	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-		navController.startingRoute = NavController.ALARM
+		navController.currentRoute = NavController.ALARM
 		completionHandler()
 	}
 
 	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-		print("3")
+		navController.currentRoute = NavController.ALARM
 		completionHandler([.alert, .sound, .badge])
 	}
 }
@@ -86,7 +87,7 @@ struct duck_alarmApp: App {
 
 	var body: some Scene {
 		WindowGroup {
-			if delegate.navController.startingRoute == NavController.ALARM {
+			if delegate.navController.currentRoute == NavController.ALARM {
 				DismissAlarmScreen()
 					.environment(\.managedObjectContext, persistenceController.container.viewContext)
 			} else {
