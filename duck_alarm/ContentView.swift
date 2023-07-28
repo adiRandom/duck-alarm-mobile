@@ -44,10 +44,12 @@ struct ContentView: View {
 			.sheet(isPresented: $viewModel.isBottomSheetPresented) {
 				AddAlarmBottomSheet(
 					alarmModel: viewModel.selectedAlarmModel,
-					isBottomSheetPresented: $viewModel.isBottomSheetPresented
-				) { selectedTime, repeatDays in
-					viewModel.saveAlarm(selectedTime: selectedTime, repeatDays: repeatDays)
-				}
+					isBottomSheetPresented: $viewModel.isBottomSheetPresented, onSaveAlarm: { selectedTime, repeatDays in
+						viewModel.saveAlarm(selectedTime: selectedTime, repeatDays: repeatDays)
+					}, onDeleteAlarm: {
+						viewModel.onDeleteSelected()
+					}
+				)
 				.presentationDragIndicator(.visible)
 				.presentationDetents([.fraction(0.6)])
 			}

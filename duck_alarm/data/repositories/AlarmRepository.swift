@@ -107,12 +107,21 @@ class AlarmRepository: ObservableObject {
 		}
 	}
 
-	func dismissAlarm() async {
-		do{
-			try await firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).updateData(["shouldRing": false])
-		}catch{
-			
+	func deleteAlarm(alarmId: Int) {
+		guard let alarmEntity = getAlarmEntity(id: alarmId) else { return }
+		do {
+			db.container.viewContext.delete(alarmEntity)
+			try db.container.viewContext.save()
+		} catch {
+			return
 		}
+		firestore.collection(AlarmRepository.COLLECTION).document(String(alarmId)).delete()
+	}
+
+	func dismissAlarm() async {
+		do {
+			try await firestore.collection(AlarmRepository.METADATA_COLLECTION).document(AlarmRepository.METADATA_COLLECTION).updateData(["shouldRing": false])
+		} catch {}
 	}
 
 	func silenceAlarm(onSilenceUpdate: @MainActor @escaping (Bool) -> Void) {

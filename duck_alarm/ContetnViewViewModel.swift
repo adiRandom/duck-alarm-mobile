@@ -96,4 +96,11 @@ class ContentViewViewModel: ObservableObject {
 		preferencesRepository.stepsToDismiss = stepGoal
 		preferencesRepository.muteForTime = silenceTime
 	}
+	
+	func onDeleteSelected() {
+		if let alarmModel = selectedAlarmModel {
+			alarmRepository.deleteAlarm(alarmId: alarmModel.id)
+			fetchAlarms()
+		}
+	}
 }

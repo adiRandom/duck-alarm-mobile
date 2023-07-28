@@ -10,6 +10,7 @@ import SwiftUI
 struct AddAlarmBottomSheet: View {
 	let isEditable: Bool
 	let onSaveAlarm: (_ selectedTime: Date, _ repeatDays: [Int])->Void
+	let onDeleteAlarm: ()->Void
 
 	@Binding
 	var isBottomSheetPresented: Bool
@@ -20,7 +21,8 @@ struct AddAlarmBottomSheet: View {
 	init(
 		alarmModel: AlarmModel?,
 		isBottomSheetPresented: Binding<Bool>,
-		onSaveAlarm: @escaping (_ selectedTime: Date, _ repeatDays: [Int])->Void
+		onSaveAlarm: @escaping (_ selectedTime: Date, _ repeatDays: [Int])->Void,
+		onDeleteAlarm: @escaping ()->Void
 	) {
 		if let alarmModel {
 			isEditable = true
@@ -32,6 +34,7 @@ struct AddAlarmBottomSheet: View {
 			_repeatDays = State(initialValue: [])
 		}
 
+		self.onDeleteAlarm = onDeleteAlarm
 		self.onSaveAlarm = onSaveAlarm
 		_isBottomSheetPresented = isBottomSheetPresented
 	}
@@ -55,8 +58,10 @@ struct AddAlarmBottomSheet: View {
 				}
 				if isEditable {
 					Divider()
-					Button(role: .destructive, action: {}, label: { Text("Delete")
-							.frame(maxWidth: .infinity)
+					Button(role: .destructive, action: { self.onDeleteAlarm()
+						isBottomSheetPresented = false
+					}, label: { Text("Delete")
+						.frame(maxWidth: .infinity)
 					})
 				}
 			}
@@ -75,17 +80,16 @@ struct AddAlarmBottomSheet_Previews: PreviewProvider {
 			AddAlarmBottomSheet(alarmModel: nil,
 			                    isBottomSheetPresented: .constant(true),
 			                    onSaveAlarm: { _, _ in
-
-			                    })
-			                    .previewDisplayName("Add")
+			                    }, onDeleteAlarm: {})
+				.previewDisplayName("Add")
 			AddAlarmBottomSheet(alarmModel: AlarmModel(
 				hour: 4, min: 20, isPm: true, repeatingDays: [1, 3], active: true
 			),
 			isBottomSheetPresented: .constant(true),
 			onSaveAlarm: { _, _ in
 
-			})
-			.previewDisplayName("Edit")
+			}, onDeleteAlarm: {})
+				.previewDisplayName("Edit")
 		}
 	}
 }
