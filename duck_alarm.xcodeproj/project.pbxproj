@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A05DCFD2A670AFA0085E88B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 0A05DCFC2A670AFA0085E88B /* FirebaseMessaging */; };
+		0A140C3E2A74424B001E3B34 /* MetadataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A140C3D2A74424B001E3B34 /* MetadataModel.swift */; };
 		0A28EDC82A36377A00377DE0 /* SettingsBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28EDC72A36377A00377DE0 /* SettingsBottomSheet.swift */; };
 		0A28EDCA2A363B0100377DE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28EDC92A363B0100377DE0 /* Extensions.swift */; };
 		0A3434692A34F6F0000D85AF /* PreferencesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		0A05DCFE2A6711D60085E88B /* duck_alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = duck_alarm.entitlements; sourceTree = "<group>"; };
 		0A0A53732A193924005E7EE8 /* duck-alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "duck-alarm-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0A140C3D2A74424B001E3B34 /* MetadataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataModel.swift; sourceTree = "<group>"; };
 		0A28EDC72A36377A00377DE0 /* SettingsBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBottomSheet.swift; sourceTree = "<group>"; };
 		0A28EDC92A363B0100377DE0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0A3434682A34F6F0000D85AF /* PreferencesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesRepository.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				0AD403EE2A1D212A002D06EF /* AlarmModel.swift */,
+				0A140C3D2A74424B001E3B34 /* MetadataModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				0A357F092A115F6D00EF13E5 /* Persistence.swift in Sources */,
 				0A28EDC82A36377A00377DE0 /* SettingsBottomSheet.swift in Sources */,
 				0AD404302A1D27B1002D06EF /* ThemedLabel.swift in Sources */,
+				0A140C3E2A74424B001E3B34 /* MetadataModel.swift in Sources */,
 				0A357F022A115F6C00EF13E5 /* ContentView.swift in Sources */,
 				0A9977C82A28D31100D96A3C /* Modifiers.swift in Sources */,
 				0A5288542A2A942000ADE430 /* AlarmRepository.swift in Sources */,

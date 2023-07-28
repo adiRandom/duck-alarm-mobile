@@ -10,13 +10,14 @@ import SwiftUI
 struct SettingsBottomSheet: View {
 	@State var stepsToDismiss = "30"
 	@State var timeForSilence = "30"
+	@State var isAlarmEnabled: Bool = false
 	@IsDarkMode var isDarkMode
 	@Binding var isPresented: Bool
 
-	let onSave: (_ steps: Int, _ silence: Int) -> Void
+	let onSave: (_ steps: Int, _ silence: Int, _ isAlarmEnabled: Bool) -> Void
 
 	func handleSave() {
-		onSave(Int(stepsToDismiss) ?? 0, Int(timeForSilence) ?? 0)
+		onSave(Int(stepsToDismiss) ?? 0, Int(timeForSilence) ?? 0, isAlarmEnabled)
 		dismiss()
 	}
 
@@ -44,6 +45,13 @@ struct SettingsBottomSheet: View {
 				}
 				.padding([.top, .bottom], 8)
 				.padding([.leading, .trailing], 16)
+				HStack {
+					ThemedText("Is alarm enabled", textColor: .Label)
+						.frame(minWidth: 160)
+					Toggle("", isOn: $isAlarmEnabled)
+				}
+				.padding([.top, .bottom], 8)
+				.padding([.leading, .trailing], 0)
 			}
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
@@ -71,6 +79,6 @@ struct SettingsBottomSheet: View {
 
 struct SettingsBottomSheet_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsBottomSheet(isPresented: .constant(true), onSave: { _, _ in })
+		SettingsBottomSheet(isPresented: .constant(true), onSave: { _, _, _ in })
 	}
 }

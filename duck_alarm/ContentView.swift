@@ -58,10 +58,13 @@ struct ContentView: View {
 				SettingsBottomSheet(
 					stepsToDismiss: String(viewModel.currentStepsGoal),
 					timeForSilence: String(viewModel.currentTimeForSilece),
-					isPresented: $viewModel.isSettingsBottomSheetPresented
-				) { stepGoal, silenceTime in
-					viewModel.onSave(stepGoal: stepGoal, silenceTime: silenceTime)
-				}
+					isAlarmEnabled: viewModel.isAlarmEnabled,
+					isPresented: $viewModel.isSettingsBottomSheetPresented,
+
+					onSave: { stepGoal, silenceTime, isAlarmEnabled in
+						viewModel.onSave(stepGoal: stepGoal, silenceTime: silenceTime, isAlarmEnabled: isAlarmEnabled)
+					}
+				)
 				.presentationDetents([.medium])
 			}
 			.onChange(of: viewModel.isBottomSheetPresented, perform: { isBottomSheetPresented in

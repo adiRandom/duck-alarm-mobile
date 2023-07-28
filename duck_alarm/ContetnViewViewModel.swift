@@ -27,6 +27,9 @@ class ContentViewViewModel: ObservableObject {
 	var currentTimeForSilece = 0
 	
 	@Published
+	var isAlarmEnabled = false
+	
+	@Published
 	var selectedAlarmModel: AlarmModel? = nil
 	
 	@Published
@@ -87,14 +90,23 @@ class ContentViewViewModel: ObservableObject {
 	}
 	
 	func showSettings() {
+		Task {
+			await showSettings(isAlarmEnabled: await preferencesRepository.getIsAlarmEnabled())
+		}
+	}
+	
+	@MainActor
+	private func showSettings(isAlarmEnabled: Bool) {
 		currentStepsGoal = preferencesRepository.stepsToDismiss
 		currentTimeForSilece = preferencesRepository.muteForTime
+		self.isAlarmEnabled = isAlarmEnabled
 		isSettingsBottomSheetPresented = true
 	}
 	
-	func onSave(stepGoal: Int, silenceTime: Int) {
+	func onSave(stepGoal: Int, silenceTime: Int, isAlarmEnabled: Bool) {
 		preferencesRepository.stepsToDismiss = stepGoal
 		preferencesRepository.muteForTime = silenceTime
+		preferencesRepository.setIsAlarmEnabled(isEnabled: isAlarmEnabled)
 	}
 	
 	func onDeleteSelected() {
